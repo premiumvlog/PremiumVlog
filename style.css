@@ -1,28 +1,53 @@
-/* Minimal responsive CSS for Premium Vlog */
 :root{
-  --accent:#6b5ce3;
   --bg:#0f1724;
-  --text:#0b0b0b;
-  --muted:#666;
+  --card:#0b1220;
+  --muted:#9aa6b2;
+  --accent:#ff6b6b;
+  --text:#e6eef6;
+  --wrap:1100px;
+  font-family: Inter, system-ui, Arial, sans-serif;
 }
-*{box-sizing:border-box}
-body{font-family:Inter, system-ui, Arial, sans-serif; margin:0; color:var(--text); background:#fafafa; line-height:1.5}
-.wrap{max-width:900px;margin:0 auto;padding:18px}
-.site-header{background:white;border-bottom:1px solid #eee; position:sticky; top:0; z-index:20}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between}
-.brand a{font-weight:700;color:var(--text);text-decoration:none;font-size:20px}
-.nav a{margin-left:12px;color:#333;text-decoration:none}
-.hero{padding:28px 10px;text-align:center;background:linear-gradient(180deg,#fff,#fafafa);border-radius:8px}
-.cta .btn{background:var(--accent);color:white;padding:10px 16px;border-radius:8px;text-decoration:none}
-.features{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
-.video iframe{width:100%;height:220px;border-radius:8px}
-.posts{list-style:none;padding:0;margin:0}
-.posts li{padding:8px 0;border-bottom:1px dashed #eee}
-.main h2{margin-top:18px}
-.site-footer{padding:18px 0;background:#fff;border-top:1px solid #eee;margin-top:26px;text-align:center;color:#666}
 
-/* Responsive */
-@media(min-width:700px){
-  .features{grid-template-columns:1fr 1fr}
-  .video iframe{height:300px}
-}
+/* basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:#111;line-height:1.5;font-family:Inter,Arial,sans-serif}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:20px}
+
+/* header */
+.site-header{background:#f8f8f8;border-bottom:1px solid #eee}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:700;text-decoration:none;color:#111;font-size:20px}
+.menuBtn{display:none;background:transparent;border:0;font-size:20px}
+
+/* hero */
+.hero{display:flex;gap:24px;align-items:center;padding:32px 0}
+.hero-left{flex:1}
+.hero-right{flex:1}
+.hero-right img{width:100%;height:320px;object-fit:cover;border-radius:6px}
+.hero h1{font-size:30px;margin-bottom:10px}
+.hero p{color:#333;margin-bottom:12px}
+.btn{display:inline-block;padding:10px 16px;border-radius:6px;background:#111;color:#fff;text-decoration:none;font-weight:600}
+
+/* cards grid */
+.grid h2{margin:30px 0 10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.03)}
+.card a{display:block;color:inherit;text-decoration:none}
+.thumb{width:100%;height:140px;object-fit:cover;background:#ddd}
+.card-body{padding:12px}
+.card-body h3{font-size:16px;margin-bottom:6px}
+.muted{color:#666;font-size:13px}
+
+/* features */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin:36px 0;padding-top:10px}
+.features .col{background:#fafafa;border:1px solid #eee;padding:14px;border-radius:8px}
+.site-footer{padding:20px 0;color:#555}
+
+/* responsive */
+@media (max-width:800px){
+  .hero{flex-direction:column}
+  .hero-right img{height:200px}
+  .menuBtn{display:block}
+  .navLinks{display:none}
+  .navLinks.show{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+  }
