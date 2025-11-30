@@ -1,8 +1,8 @@
-// Small helper script
+// paste into script.js
 document.addEventListener('DOMContentLoaded', function(){
-  const y = new Date().getFullYear();
-  ['year','year2','year3','year4'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) el.textContent = y;
+  var btn = document.getElementById('menuBtn');
+  var nav = document.querySelector('.navLinks');
+  btn && btn.addEventListener('click', function(){
+    nav.classList.toggle('show');
   });
 });
