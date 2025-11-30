@@ -1,61 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Vlog & Blog</title>
-  <style>
-    body { margin: 0; padding: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
-    header { background: #333; color: white; padding: 20px; text-align: center; }
-    nav { background: #444; display: flex; justify-content: center; }
-    nav a { color: white; padding: 14px 20px; text-decoration: none; }
-    nav a:hover { background: #555; }
-    .container { display: flex; flex-wrap: wrap; max-width: 1200px; margin: 20px auto; }
-    .post { background: white; margin: 10px; padding: 20px; flex: 1 1 300px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .post h2 { margin-top: 0; }
-    .post .meta { color: #777; font-size: 0.9em; }
-    footer { background: #333; color: white; text-align: center; padding: 10px; margin-top: 40px; }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium Vlog - Travel · Food · Stories</title>
+  <meta name="description" content="Premium Vlog - travel, street food, stories and daily vlogs." />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
-  <header>
-    <h1>My Vlog & Blog</h1>
-    <p>Aapka tagline yahan</p>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">Premium Vlog</a>
+      <nav class="navLinks">
+        <a href="/">Home</a>
+        <a href="/vlog.html">Vlog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a class="channel" href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">YouTube</a>
+      </nav>
+      <button id="menuBtn" class="menuBtn" aria-label="menu">☰</button>
+    </div>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <main class="wrap main">
+    <!-- HERO -->
+    <section class="hero" aria-label="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1>Travel · Food · Stories — <strong>Premium Vlog</strong></h1>
+          <p class="muted">Short travel films, street food, city stories and daily vlogs. Follow our latest vlogs on YouTube.</p>
+          <!-- Watch Latest opens your YouTube channel -->
+          <a class="cta" href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">Watch Latest</a>
+        </div>
+        <div class="hero-right">
+          <img src="https://images.unsplash.com/photo-151537378791036-0648a3ef77b2?q=80&w=1000&auto=format&fit=crop" alt="Premium Vlog hero" />
+        </div>
+      </div>
+    </section>
 
-  <div class="container">
-    <!-- Ek post ka example: -->
-    <div class="post">
-      <h2>Post Title 1</h2>
-      <p class="meta">By Author — 30 November 2025</p>
-      <p>
-        Yahaan aap apni vlog ya blog post ka thoda preview ya summary likh sakte hain. Aur agar full post ke liye link chahiye, usse wrap karke anchor tag bana sakte hain.
-      </p>
-      <a href="post1.html">Read more...</a>
+    <!-- LATEST VIDEOS -->
+    <section id="latest" class="grid-section">
+      <h2>Latest videos</h2>
+      <div id="videosGrid" class="grid">
+
+        <!-- Card 1: Chor Minar -->
+        <article class="card">
+          <a href="https://youtu.be/N-7N3cyYIxw" target="_blank" rel="noopener">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/N-7N3cyYIxw/hqdefault.jpg" alt="Chor Minar thumbnail" />
+            </div>
+            <div class="card-body">
+              <h3>Chor Minar Vlog</h3>
+              <p class="muted">Street walk, night shots and story behind the place.</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 2: DLF / Select City Walk -->
+        <article class="card">
+          <a href="https://youtu.be/ZAn8XKfBxlY" target="_blank" rel="noopener">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/ZAn8XKfBxlY/hqdefault.jpg" alt="DLF Mall thumbnail" />
+            </div>
+            <div class="card-body">
+              <h3>DLF / Select City Walk</h3>
+              <p class="muted">Mall walk, food courts and city vibes.</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 3: Flag short (most viewed) -->
+        <article class="card">
+          <a href="https://youtube.com/shorts/wssAsPHLQBI" target="_blank" rel="noopener">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/wssAsPHLQBI/hqdefault.jpg" alt="Popular short thumbnail" />
+            </div>
+            <div class="card-body">
+              <h3>Popular Short — Flag</h3>
+              <p class="muted">Short clip that got most views.</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FEATURES / BOXES -->
+    <section class="features wrap-features">
+      <div class="box"> <h4>Professional look</h4> <p>Clean, fast and responsive — perfect for showcasing videos and stories.</p> </div>
+      <div class="box"> <h4>Easy to update</h4> <p>Edit files in GitHub — changes go live instantly.</p> </div>
+      <div class="box"> <h4>Free hosting</h4> <p>Hosted on GitHub Pages with your custom domain and HTTPS.</p> </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2025 Premium Vlog</p>
+      <p class="social"><a href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">YouTube</a> · <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></p>
     </div>
-
-    <div class="post">
-      <h2>Post Title 2</h2>
-      <p class="meta">By Author — 28 November 2025</p>
-      <p>
-        Content preview ya summary — aap apna likh sakte hain.
-      </p>
-      <a href="post2.html">Read more...</a>
-    </div>
-
-    <!-- Aur posts yahan add karte jayen -->
-  </div>
-
-  <footer>
-    &copy; 2025 My Vlog & Blog. All rights reserved.
   </footer>
 
 </body>
