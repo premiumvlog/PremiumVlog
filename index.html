@@ -3,104 +3,120 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Premium Vlog — Travel • Food • Stories & Daily Vlogs</title>
-  <meta name="description" content="Travel films, street food, city stories and daily vlogs. Watch on YouTube." />
-  <link rel="icon" href="/favicon.png" />
+  <title>Premium Vlog – Travel • Food • Stories</title>
+  <meta name="description" content="Premium Vlog – travel, street food, stories and daily vlogs." />
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="/">Premium Vlog</a>
-      <nav class="nav">
+      <nav class="navLinks">
         <a href="/">Home</a>
         <a href="/vlog.html">Vlog</a>
         <a href="/about.html">About</a>
         <a href="/contact.html">Contact</a>
-        <a class="ch" href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank">YouTube</a>
+        <!-- Channel link opens YouTube channel -->
+        <a class="channel" href="https://youtube.com/@premiumvlogg" target="_blank" rel="noopener">YouTube</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
+  <main class="wrap main">
+    <!-- HERO -->
+    <section class="hero" aria-label="hero">
       <div class="hero-left">
-        <h1>Travel • Food • Stories — <span>Premium Vlog</span></h1>
-        <p class="lead">Short travel films, street food & city stories. Daily vlogs and behind-the-scenes. Follow our latest on YouTube.</p>
-        <p><a class="btn" href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank">Watch Latest</a></p>
+        <h1>Travel • Food • Stories — <strong>Premium Vlog</strong></h1>
+        <p>Short travel films, street food, city stories and daily vlogs. Follow our latest videos on YouTube.</p>
+        <a class="cta" href="#latest">Watch Latest</a>
       </div>
       <div class="hero-right">
-        <img alt="Vlogger travel photo" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800&auto=format&fit=crop" />
+        <!-- hero image – feel free to change -->
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3e7f7b2?q=80&w=1200&auto=format&fit=crop" alt="Premium Vlog hero" />
       </div>
     </section>
 
-    <section class="grid-section">
+    <!-- LATEST VIDEOS GRID -->
+    <section id="latest" class="grid-section">
       <h2>Latest videos</h2>
+
       <div class="grid" id="videosGrid">
 
-        <!-- Video 1 -->
+        <!-- Card 1: Chor Minar vlog -->
         <article class="card">
-          <a class="thumb-link" href="https://youtu.be/N-7N3cyYIxw" target="_blank">
-            <img class="thumb" src="https://img.youtube.com/vi/N-7N3cyYIxw/hqdefault.jpg" alt="Chor Minar" />
+          <a href="https://youtu.be/N-7N3cyYIxw" target="_blank" rel="noopener">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/N-7N3cyYIxw/hqdefault.jpg" alt="Chor Minar Vlog thumbnail" />
+            </div>
+            <div class="card-body">
+              <h3>Chor Minar Vlog</h3>
+              <p class="muted">Street walk, night shots and story behind the place.</p>
+            </div>
           </a>
-          <div class="card-body">
-            <h3>Chor Minar — Delhi</h3>
-            <p>Street walk, night shots and city stories.</p>
-            <a class="btn" href="https://youtu.be/N-7N3cyYIxw" target="_blank">Watch</a>
-          </div>
         </article>
 
-        <!-- Video 2 -->
+        <!-- Card 2: DLF / Select City Walk -->
         <article class="card">
-          <a class="thumb-link" href="https://youtu.be/ZAn8XKfBxlY" target="_blank">
-            <img class="thumb" src="https://img.youtube.com/vi/ZAn8XKfBxlY/hqdefault.jpg" alt="DLF / Mall" />
+          <a href="https://youtu.be/ZAn8XKfBxlY" target="_blank" rel="noopener">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/ZAn8XKfBxlY/hqdefault.jpg" alt="DLF Mall Vlog thumbnail" />
+            </div>
+            <div class="card-body">
+              <h3>DLF / Select City Walk</h3>
+              <p class="muted">Mall walk, food courts and city vibes.</p>
+            </div>
           </a>
-          <div class="card-body">
-            <h3>DLF / Select City Walk</h3>
-            <p>Food, mall tours & street eats.</p>
-            <a class="btn" href="https://youtu.be/ZAn8XKfBxlY" target="_blank">Watch</a>
-          </div>
         </article>
 
-        <!-- Video 3 (shorts) -->
+        <!-- Card 3: Short (flag) -->
         <article class="card">
-          <a class="thumb-link" href="https://youtube.com/shorts/wssAsPHLQBI" target="_blank">
-            <img class="thumb" src="https://img.youtube.com/vi/wssAsPHLQBI/hqdefault.jpg" alt="Short clip - flag" />
+          <a href="https://youtube.com/shorts/wssAsPHLQBI" target="_blank" rel="noopener">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/wssAsPHLQBI/hqdefault.jpg" alt="Popular short thumbnail" />
+            </div>
+            <div class="card-body">
+              <h3>Popular Short — Flag</h3>
+              <p class="muted">Short clip that got most views.</p>
+            </div>
           </a>
-          <div class="card-body">
-            <h3>Short clip — Most viewed</h3>
-            <p>Short snapshot that got most views.</p>
-            <a class="btn" href="https://youtube.com/shorts/wssAsPHLQBI" target="_blank">Watch</a>
-          </div>
         </article>
 
-      </div>
+      </div> <!-- /grid -->
     </section>
 
+    <!-- FEATURES -->
     <section class="features">
-      <div class="col">
+      <div>
         <h3>Professional look</h3>
         <p>Clean, fast and responsive — perfect for showcasing videos and stories.</p>
       </div>
-      <div class="col">
+      <div>
         <h3>Easy to update</h3>
         <p>Edit files in GitHub — changes go live instantly.</p>
       </div>
-      <div class="col">
+      <div>
         <h3>Free hosting</h3>
         <p>Hosted on GitHub Pages with your custom domain and HTTPS.</p>
       </div>
     </section>
-
-    <footer class="site-footer">
-      <p>© 2025 Premium Vlog</p>
-      <p class="links"><a href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank">YouTube</a> · <a href="#">Instagram</a></p>
-    </footer>
   </main>
 
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2025 Premium Vlog</p>
+      <p>
+        <a href="https://youtube.com/@premiumvlogg" target="_blank" rel="noopener">YouTube</a> ·
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </p>
+    </div>
+  </footer>
+
   <script>
-    // small JS to set current year (optional)
-    (function(){const y=new Date().getFullYear();const el=document.querySelector('.site-footer p');if(el)el.innerHTML='© '+y+' Premium Vlog';})();
+    // small helper: current year
+    try {
+      document.querySelector('.site-footer p').innerText =
+        '© ' + new Date().getFullYear() + ' Premium Vlog';
+    } catch(e){}
   </script>
 </body>
 </html>
