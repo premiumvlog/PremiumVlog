@@ -1,57 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Premium Vlog — Home</title>
-<link rel="stylesheet" href="style.css">
-<meta name="description" content="Premium Vlog — stories, vlogs and updates.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium Vlog — Home</title>
+  <meta name="description" content="Premium Vlog — videos, stories, vlogs and more." />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <h1 class="brand"><a href="index.html">Premium Vlog</a></h1>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="vlog.html">Vlogs</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+  <header class="nav">
+    <a class="brand" href="/">Premium Vlog</a>
+    <button id="menuBtn" class="menuBtn">☰</button>
+    <nav id="navLinks" class="navLinks">
+      <a href="/">Home</a>
+      <a href="/vlog.html">Vlog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main class="wrap main">
-  <section class="hero">
-    <h2>Welcome to Premium Vlog</h2>
-    <p>Short stories • YouTube embeds • Travel • Education • Life</p>
-    <p class="cta"><a class="btn" href="vlog.html">See Latest Vlogs</a></p>
-  </section>
-
-  <section class="features">
-    <article>
-      <h3>Featured video</h3>
-      <!-- Replace VIDEO_ID with your YouTube ID -->
-      <div class="video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Welcome to <span>Premium Vlog</span></h1>
+        <p>Stories • Vlogs • News • Learning — short, clean & professional. Follow our latest videos and updates.</p>
+        <a class="cta" href="/vlog.html">Watch Latest</a>
       </div>
-    </article>
-    <article>
-      <h3>Latest stories</h3>
-      <ul class="posts">
-        <li><a href="vlog.html#post1">My rooftop vlog — midnight shoot</a></li>
-        <li><a href="vlog.html#post2">How I plan my content</a></li>
-        <li><a href="vlog.html#post3">Small town travel guide</a></li>
-      </ul>
-    </article>
-  </section>
-</main>
+      <div class="hero-right">
+        <img alt="Premium Vlog" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=9e9bf1b4f7d6d7c4d7284ea7df0b2b25" />
+      </div>
+    </section>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p>© <span id="year"></span> Premium Vlog • <a href="contact.html">Contact</a></p>
-  </div>
-</footer>
+    <section class="grid-section">
+      <h2>Latest videos</h2>
+      <div class="grid" id="videosGrid">
+        <!-- Replace VIDEO_ID with your YouTube video id -->
+        <article class="card">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg" alt="Video 1" />
+          </div>
+          <div class="card-body">
+            <h3>My Latest Vlog</h3>
+            <p>Short description about this vlog.</p>
+            <a class="btn" href="/vlog.html#video1">Watch</a>
+          </div>
+        </article>
 
-<script src="script.js"></script>
+        <article class="card">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID2/hqdefault.jpg" alt="Video 2" />
+          </div>
+          <div class="card-body">
+            <h3>City Night Vlog</h3>
+            <p>Quick shots and behind the scenes.</p>
+            <a class="btn" href="/vlog.html#video2">Watch</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="features">
+      <div>
+        <h3>Professional look</h3>
+        <p>Clean, fast and responsive — perfect for showcasing videos and stories.</p>
+      </div>
+      <div>
+        <h3>Easy to update</h3>
+        <p>Edit files in GitHub — changes go live instantly.</p>
+      </div>
+      <div>
+        <h3>Free hosting</h3>
+        <p>Hosted on GitHub Pages with your custom domain and HTTPS.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> Premium Vlog</div>
+    <div class="socials">
+      <a href="https://youtube.com" target="_blank">YouTube</a> •
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
 </body>
 </html>
