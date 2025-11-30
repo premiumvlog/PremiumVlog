@@ -1,95 +1,53 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
-}
+/* --- Reset + base --- */
+:root{--bg:#f6f7f8;--card:#ffffff;--muted:#666;--accent:#ff4d45;--text:#111}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
 
-/* NAVBAR */
-header {
-    background: black;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-}
+/* header */
+.site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,0.05);position:sticky;top:0;z-index:50}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;text-decoration:none;color:var(--text);font-size:20px}
+.navLinks{display:flex;gap:16px;align-items:center}
+.navLinks a{color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+.channel{color:var(--accent);font-weight:700}
 
-header .logo {
-    font-size: 22px;
-    font-weight: bold;
-}
+/* hero */
+.hero-inner{display:flex;gap:28px;align-items:center;padding:36px 0}
+.hero-left{flex:1}
+.hero-right{flex:1;display:flex;justify-content:flex-end}
+.hero-right img{width:360px;height:220px;object-fit:cover;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+.hero-left h1{font-size:30px;margin:0;color:var(--text)}
+.muted{color:var(--muted);margin:10px 0}
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 14px;
-}
+/* CTA */
+.cta{background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:800;display:inline-block;box-shadow:0 8px 20px rgba(255,77,69,0.12)}
 
-/* HERO SECTION */
-.hero {
-    height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1502920514313-52581002a659?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+/* grid of videos */
+.grid-section{padding:18px 0}
+#videosGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.card{background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 8px 24px rgba(12,12,14,0.04);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column}
+.thumb img{width:100%;height:200px;object-fit:cover;display:block}
+.card-body{padding:12px}
+.card-body h3{margin:6px 0 6px;font-size:16px}
+.card-body p{color:var(--muted);font-size:13px;margin:0}
+.card a{text-decoration:none;color:inherit;display:block}
 
-.hero-content {
-    color: white;
-    padding: 20px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 10px;
-}
+/* feature boxes */
+.wrap-features{display:flex;gap:16px;padding:18px 0;flex-wrap:wrap}
+.box{background:var(--card);border-radius:8px;padding:14px;min-width:220px;border:1px solid rgba(0,0,0,0.03)}
 
-.hero-content h1 {
-    font-size: 28px;
-}
+/* footer */
+.site-footer{border-top:1px solid rgba(0,0,0,0.04);margin-top:24px;background:transparent}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 18px}
+.footer-inner p{margin:0;font-size:14px}
+.footer-inner .social a{color:var(--accent);text-decoration:none}
 
-.hero-content p {
-    margin: 10px 0;
-}
-
-.btn {
-    display: inline-block;
-    background: #ffb700;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    margin-top: 10px;
-}
-
-/* DESTINATIONS */
-.destinations {
-    text-align: center;
-    padding: 30px 15px;
-}
-
-.cards {
-    display: flex;
-    gap: 15px;
-    overflow-x: scroll;
-    padding: 10px;
-}
-
-.card {
-    min-width: 160px;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.card img {
-    width: 100%;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 8px;
+/* small-screen adjustments */
+@media (max-width:800px){
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .hero-right img{width:100%;height:180px}
+  #videosGrid{grid-template-columns:1fr}
+  .header-inner{padding:6px 0}
+  .brand{font-size:18px}
 }
