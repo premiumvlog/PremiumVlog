@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Premium Vlog - Travel · Food · Stories</title>
-  <meta name="description" content="Premium Vlog - travel, street food, stories and daily vlogs." />
+  <title>Premium Vlog — Travel · Food · Stories</title>
+  <meta name="description" content="Premium Vlog — travel, street food, stories and daily vlogs." />
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
@@ -24,21 +24,27 @@
 
   <main class="wrap main">
     <!-- HERO -->
-    <div class="hero-right">
-  <img src="/hero.png" alt="Premium Vlog hero" />
-    </div>
+    <section class="hero" aria-label="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1>Travel • Food • Stories — <strong>Premium Vlog</strong></h1>
+          <p class="lead">Short travel films, street food, city stories and daily vlogs. Follow our latest vlogs on YouTube.</p>
+          <a class="btn" href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">Watch Latest</a>
+        </div>
+        <div class="hero-right">
+          <!-- hero image must be at repo root named hero.png -->
+          <img src="/hero.png" alt="Premium Vlog Hero Image" />
+        </div>
+      </div>
+    </section>
 
-    Update: use hero.png for hero image
-    
-
-    <!-- LATEST VIDEOS -->
+    <!-- LATEST VIDEOS GRID -->
     <section id="latest" class="grid-section">
       <h2>Latest videos</h2>
-      <div id="videosGrid" class="grid">
+      <div class="grid" id="videosGrid">
 
-        <!-- Card 1: Chor Minar -->
         <article class="card">
-          <a href="https://youtu.be/N-7N3cyYIxw" target="_blank" rel="noopener">
+          <a href="https://youtu.be/N-7N3cyYIxw?si=jIsuq5Pft00-kXq8" target="_blank" rel="noopener">
             <div class="thumb">
               <img src="https://img.youtube.com/vi/N-7N3cyYIxw/hqdefault.jpg" alt="Chor Minar thumbnail" />
             </div>
@@ -49,9 +55,8 @@
           </a>
         </article>
 
-        <!-- Card 2: DLF / Select City Walk -->
         <article class="card">
-          <a href="https://youtu.be/ZAn8XKfBxlY" target="_blank" rel="noopener">
+          <a href="https://youtu.be/ZAn8XKfBxlY?si=M3IMvZzTTS-DXn9a" target="_blank" rel="noopener">
             <div class="thumb">
               <img src="https://img.youtube.com/vi/ZAn8XKfBxlY/hqdefault.jpg" alt="DLF Mall thumbnail" />
             </div>
@@ -62,9 +67,8 @@
           </a>
         </article>
 
-        <!-- Card 3: Flag short (most viewed) -->
         <article class="card">
-          <a href="https://youtube.com/shorts/wssAsPHLQBI" target="_blank" rel="noopener">
+          <a href="https://youtube.com/shorts/wssAsPHLQBI?si=-CnixJs_tiigzcO0" target="_blank" rel="noopener">
             <div class="thumb">
               <img src="https://img.youtube.com/vi/wssAsPHLQBI/hqdefault.jpg" alt="Popular short thumbnail" />
             </div>
@@ -78,45 +82,35 @@
       </div>
     </section>
 
-    <!-- FEATURES / BOXES -->
+    <!-- THREE FEATURE BOXES -->
     <section class="features wrap-features">
-
-  <div class="box">
-    <h4>अनसुनी कहानियाँ</h4>
-    <p>हर जगह का इतिहास, रहस्य और ऐसी बातें जो आपने कभी नहीं सुनी होंगी — 
-    गली-मोहल्लों से लेकर इंडिया और विदेशों की मशहूर लोकेशन्स तक। 
-    यहाँ हर वीडियो एक नई कहानी लेकर आता है।</p>
-  </div>
-
-  <div class="box">
-    <h4>सफर की पूरी जानकारी</h4>
-    <p>कहां जाना है, कैसे पहुँचना है, टिकट कितना लगता है, 
-    किस दिन क्या बंद रहता है — 
-    हर जगह का पूरा टूर गाइड आपको यहीं मिलेगा। 
-    ताकि आपका हर सफर आसान और यादगार बना रहें।</p>
-  </div>
-
-  <div class="box">
-    <h4>Street • Life • Vibes</h4>
-    <p>स्ट्रीट फूड से लेकर जानवरों, फूलों,पर्यटन स्थलों और 
-    रियल लाइफ व्लॉग्स तक सब कुछ — 
-    हर वीडियो में असल जिंदगी की वाइब्स मिलेंगी। 
-    बस एक बार देखें, बिना सब्सक्राइब किए रह नहीं पाएंगे।</p>
-  </div>
-
+      <div class="box">
+        <h4>अनकही कहानियाँ</h4>
+        <p>हर जगह का इतिहास, रहस्य और ऐसी बातें जो आपने कभी नहीं सुनी होंगी — गलियों से लेकर महलों तक।</p>
+      </div>
+      <div class="box">
+        <h4>सफर की पूरी जानकारी</h4>
+        <p>कहाँ जाना है, कैसे पहुँचना है, टिकट कितना लगता है और किस दिन बंद रहता है — सब यहाँ मिलेगा।</p>
+      </div>
+      <div class="box">
+        <h4>स्ट्रीट • लाइफ • वाइब्स</h4>
+        <p>स्ट्रीट फूड, जंगली जानवर, लोक संगीत और असली जीवन की छोटी-छोटी दास्ताँ — देखने लायक व्लॉग्स।</p>
+      </div>
     </section>
-    
-    
-      <div class="box"> <h4>Professional look</h4> <p>Clean, fast and responsive — perfect for showcasing videos and stories.</p> </div>
-      <div class="box"> <h4>Easy to update</h4> <p>Edit files in Premium Vlog— changes go live instantly.</p> </div>
-      <div class="box"> <h4>Premium Vlog</h4> <p>Hosted on Premium Vlog YouTube Channel with your custom domain and HTTPS.</p> </div>
+
+    <!-- SMALL INFO BOXES -->
+    <section class="info-cards">
+      <div class="info"> <h5>Professional look</h5> <p>Clean, fast and responsive — perfect for showcasing videos and stories.</p></div>
+      <div class="info"> <h5>Easy to update</h5> <p>Edit files in GitHub — changes go live instantly.</p></div>
+      <div class="info"> <h5>Premium Vlog</h5> <p>Hosted on our YouTube channel with custom domain and HTTPS.</p></div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <p>© 2025 Premium Vlog</p>
-      <p class="social"><a href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">YouTube</a> · <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></p>
+      <p class="social"><a href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">YouTube</a> · <a href="#" target="_blank">Instagram</a></p>
     </div>
   </footer>
 
