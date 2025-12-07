@@ -8,6 +8,65 @@
   <title>Premium Vlog — Travel · Food · Stories</title>
   <meta name="description" content="Premium Vlog — travel, street food, stories and daily vlogs." />
   <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+  <!-- NAV STYLES -->
+  <style>
+    <nav class="nav">
+  <!-- Abhi tum Home page par ho, isliye isme class="active" hai -->
+  <a href="/" class="active">Home</a>
+  <a href="/vlog/">Vlog</a>
+  <a href="/about/">About</a>
+  <a href="/contact/">Contact</a>
+
+  <!-- YouTube RED BUTTON – TUMHARA Sahi link 👇 -->
+  <a
+    href="https://youtube.com/@premiumvlogg?si=u0DASTWts6FLfTQS"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="youtube-btn"
+  >
+    YouTube
+  </a>
+</nav>
+    
+      color:#444;
+      text-decoration:none;
+      font-weight:500;
+      padding:6px 10px;
+      transition:color .15s ease, transform .15s ease;
+    }
+
+    .nav a:hover{
+      color:#111;
+      transform:translateY(-1px);
+    }
+
+    /* jis link par class="active" hoga woh thoda highlight hoga */
+    .nav a.active{
+      color:#ff3b30;
+      border-bottom:2px solid #ff3b30;
+      padding-bottom:4px;
+      font-weight:600;
+    }
+
+    /* YouTube red button */
+    .nav .youtube-btn{
+      background:#FF0000;
+      color:#fff;
+      padding:8px 18px;
+      border-radius:999px;
+      font-weight:600;
+      box-shadow:0 4px 12px rgba(255,0,0,0.35);
+      border:none;
+    }
+
+    .nav .youtube-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 6px 16px rgba(255,0,0,0.45);
+    }
+  </style>
+  
 </head>
 <body>
   <header class="site-header">
