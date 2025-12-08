@@ -14,6 +14,7 @@
       --muted:#666666;
       --accent:#ff4d4d;
       --yt:#FF0000;
+      --ig-grad:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
       --radius:14px;
       --shadow:0 10px 30px rgba(15,15,15,0.06);
     }
@@ -36,7 +37,7 @@
       padding:12px 16px 40px;
     }
 
-    /* HEADER */
+    /* HEADER + NAV */
     .site-header{
       display:flex;
       align-items:center;
@@ -46,7 +47,7 @@
       top:0;
       z-index:20;
       backdrop-filter:blur(12px);
-      background:rgba(245,245,247,0.94);
+      background:rgba(245,245,247,0.96);
     }
     .site-title{
       font-weight:700;
@@ -54,41 +55,42 @@
     }
     .nav{
       display:flex;
-      gap:22px;
+      gap:10px;
       align-items:center;
-      font-size:14px;
+      font-size:13px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-    .nav-link{
+    .nav-pill{
       text-decoration:none;
-      color:#444;
-      font-weight:500;
-      position:relative;
-      padding-bottom:3px;
-    }
-    .nav-link:hover{
-      color:#000;
-    }
-    .nav-link.active::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:2px;
-      background:var(--accent);
-      border-radius:999px;
-    }
-    .btn-yt{
-      text-decoration:none;
-      background:var(--yt);
-      color:#fff;
-      padding:7px 18px;
+      padding:7px 14px;
       border-radius:999px;
       font-weight:600;
-      box-shadow:0 8px 20px rgba(255,0,0,0.4);
       display:inline-block;
+      border:1px solid transparent;
+      transition:all .15s ease;
       white-space:nowrap;
     }
+    .nav-pill:hover{
+      transform:translateY(-1px);
+      box-shadow:0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .pill-home{ background:#ffffff; border-color:#e0e0e0; color:#333; }
+    .pill-vlog{ background:#eef3ff; border-color:#c3d0ff; color:#2349c5; }
+    .pill-blog{ background:#f3ecff; border-color:#d1c3ff; color:#5d3ac7; }
+    .pill-contact{ background:#e6fbf4; border-color:#b7f0dd; color:#0c7a55; }
+    .pill-ig{ background:var(--ig-grad); color:#fff; border:none; }
+    .pill-yt{ background:var(--yt); color:#fff; border:none; box-shadow:0 8px 20px rgba(255,0,0,0.45); }
+
+    /* ACTIVE state (Home / Vlog / Blog / Contact) */
+    .nav-pill.active{
+      box-shadow:0 0 0 2px rgba(0,0,0,0.05), 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .pill-home.active{ border-color:var(--accent); color:var(--accent); }
+    .pill-vlog.active{ border-color:#2349c5; }
+    .pill-blog.active{ border-color:#5d3ac7; }
+    .pill-contact.active{ border-color:#0c7a55; }
 
     /* HERO */
     .hero{
@@ -108,7 +110,7 @@
       min-width:0;
     }
     .hero-heading{
-      font-size:28px;
+      font-size:26px;
       font-weight:800;
       margin:0 0 10px;
     }
@@ -165,7 +167,7 @@
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:16px;
     }
-    .video-card, .story-card{
+    .video-card, .story-card, .blog-card{
       background:#fff;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -190,16 +192,22 @@
       font-size:13px;
     }
 
-    .story-card{
+    .story-lead{
+      margin:4px 0 12px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .blog-card{
       padding:14px 14px 16px;
       font-size:13px;
       line-height:1.6;
     }
-    .story-title{
+    .blog-title{
       margin:0 0 6px;
       font-weight:600;
     }
-    .story-foot{
+    .blog-foot{
       margin-top:8px;
       font-size:12px;
       color:var(--muted);
@@ -248,7 +256,7 @@
     @media (max-width:560px){
       .card-grid{ grid-template-columns:1fr; }
       .site-header{ flex-direction:column; align-items:flex-start; gap:6px; }
-      .nav{ justify-content:flex-start; flex-wrap:wrap; gap:14px; }
+      .nav{ justify-content:flex-start; }
       .page{ padding:10px 12px 32px; }
     }
   </style>
@@ -260,21 +268,28 @@
     <header class="site-header">
       <div class="site-title">Premium Vlog</div>
       <nav class="nav">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#vlogs" class="nav-link">Vlog</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#home"   class="nav-pill pill-home nav-section"    data-section="home">Home</a>
+        <a href="#vlogs"  class="nav-pill pill-vlog nav-section"    data-section="vlogs">Vlog</a>
+        <a href="#blog"   class="nav-pill pill-blog nav-section"    data-section="blog">Blog</a>
+        <a href="#contact" class="nav-pill pill-contact nav-section" data-section="contact">Contact</a>
+
+        <!-- Instagram – apna real handle daal lena -->
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="nav-pill pill-ig">
+          Instagram
+        </a>
+
+        <!-- YouTube channel -->
         <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
            target="_blank"
            rel="noopener"
-           class="btn-yt">
+           class="nav-pill pill-yt">
           YouTube
         </a>
       </nav>
     </header>
 
     <main>
-      <!-- HERO -->
+      <!-- HERO / HOME -->
       <section id="home" class="hero">
         <div class="hero-text">
           <h1 class="hero-heading">Travel • Food • Stories — Premium Vlog</h1>
@@ -284,7 +299,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn-primary"
-               href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
+               href="https://youtube.com/shorts/xNy2up-3Wjg?si=gWHh6D_x4tuFnMgX"
                target="_blank"
                rel="noopener">
               ▶ Watch Latest Vlog
@@ -302,14 +317,18 @@
         </div>
       </section>
 
-      <!-- LATEST VIDEOS -->
+      <!-- LATEST VIDEOS / VLOG SECTION -->
       <section id="vlogs">
         <h2 class="section-title">Latest videos</h2>
 
         <div class="card-grid">
+          <!-- Chor Minar -->
           <article class="video-card">
-            <https://youtu.be/N-7N3cyYIxw?si=m_YWX1yZ8p_EqgIA>
-              <img src="https://img.youtube.com/vi/VIDEO_ID_1/hqdefault.jpg" alt="Chor Minar Vlog thumbnail">
+            <a class="video-thumb"
+               href="https://youtu.be/N-7N3cyYIxw?si=6psomPSSi5jFAiKC"
+               target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/N-7N3cyYIxw/hqdefault.jpg"
+                   alt="Chor Minar Vlog thumbnail">
             </a>
             <div class="video-body">
               <p class="video-title">Chor Minar Vlog</p>
@@ -317,9 +336,13 @@
             </div>
           </article>
 
+          <!-- Mall -->
           <article class="video-card">
-            <a class="video-thumb" href="https://www.youtube.com" target="_blank" rel="noopener">
-              <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="DLF Select City Walk thumbnail">
+            <a class="video-thumb"
+               href="https://youtu.be/ZAn8XKfBxlY?si=QZBHmyz5m1N_xk_u"
+               target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/ZAn8XKfBxlY/hqdefault.jpg"
+                   alt="DLF / Select City Walk thumbnail">
             </a>
             <div class="video-body">
               <p class="video-title">DLF / Select City Walk</p>
@@ -327,62 +350,75 @@
             </div>
           </article>
 
+          <!-- Playlist – Mera Bharat Mahan -->
           <article class="video-card">
-            <a class="video-thumb" href="https://www.youtube.com" target="_blank" rel="noopener">
-              <img src="https://img.youtube.com/vi/VIDEO_ID_3/hqdefault.jpg" alt="Popular short thumbnail">
+            <a class="video-thumb"
+               href="https://youtube.com/playlist?list=PLgc7gu1AV89CSNSiW3YtgxfMKYwsdkZsW&si=W7tcMADSBxZLpMYo"
+               target="_blank" rel="noopener">
+              <!-- Flag shorts playlist – thumbnail just for preview -->
+              <img src="https://img.youtube.com/vi/xNy2up-3Wjg/hqdefault.jpg"
+                   alt="Mera Bharat Mahan playlist thumbnail">
             </a>
             <div class="video-body">
-              <p class="video-title">Popular Short — Flag</p>
-              <p class="video-meta">Short clip that got most views.</p>
+              <p class="video-title">Mera Bharat Mahan 🇮🇳</p>
+              <p class="video-meta">Playlist of 20+ flag shorts – desh ke rang, har frame me tiranga.</p>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- SHORT STORIES -->
-      <section>
-        <h2 class="section-title">Short stories (Hindi)</h2>
+      <!-- BLOG / SHORT STORIES -->
+      <section id="blog">
+        <h2 class="section-title">🔥 अनकही कहानियाँ • Premium Short Stories ✨</h2>
+        <p class="story-lead">
+          दोस्तों, यहाँ मिलेंगी वो छोटी–छोटी कहानियाँ जो हर vlog के पीछे छुपी रहती हैं –
+          kabhi street food ka scene, kabhi late–night walk, kabhi desh ke liye flag moments. 💛
+        </p>
+
         <div class="card-grid">
-          <article class="story-card">
-            <h3 class="story-title">अनकही कहानियाँ | इतिहास जो कहीं नहीं सुना…</h3>
+          <article class="blog-card">
+            <h3 class="blog-title">Real streets, real stories</h3>
             <p>
-              दोस्तों, इस vlog में दिखाऊँगा वो जगहें जो किताबों में नहीं मिलतीं।
-              हर दीवार की अपनी कहानी है और मैं उन्हीं आवाज़ों को आपके तक लाता हूँ – Premium Vlog की नज़र से।
+              Every vlog starts in a real lane – autos, horns, chai ki tapri aur logon ke
+              beech se nikalti ek kahani. Premium Vlog captures those raw moments jahan
+              script nahi, bas life chal rahi hoti hai.
             </p>
-            <div class="story-foot">Exclusive tales • Premium Vlog</div>
+            <div class="blog-foot">City vibes • Premium Vlog</div>
           </article>
 
-          <article class="story-card">
-            <h3 class="story-title">सफर से पहले की स्मार्ट तैयारी – सिर्फ Premium अंदाज़ में</h3>
+          <article class="blog-card">
+            <h3 class="blog-title">Food that feels like home</h3>
             <p>
-              Budget-friendly trips, metro rides, exit gate se best रस्ता,
-              famous food lanes और सही timing – सब कुछ smart planning के साथ ताकि आपका हर vlog day OFF न जाए।
+              From late–night momos to early–morning chai, har plate ke saath ek memory
+              judi hoti hai. We don’t just show food, we show the feeling – steam, smell
+              aur first bite ka reaction, bilkul real.
             </p>
-            <div class="story-foot">Travel tips • Premium Vlog</div>
+            <div class="blog-foot">Street food tales • Premium Vlog</div>
           </article>
 
-          <article class="story-card">
-            <h3 class="story-title">हर मोड़, हर पल… एक नया vlog</h3>
+          <article class="blog-card">
+            <h3 class="blog-title">Flag, frames & feelings</h3>
             <p>
-              कभी सड़क का शोर, कभी रात की शांति, कभी street food की खुशबू –
-              हर frame में एक नया mood, एक नई कहानी। बस कैमरा on, दिल open – यही है Premium Vlog।
+              Mera Bharat Mahan playlist sirf Tiranga ka shot nahi hai – har short ek
+              chhota sa salute hai. Different places, different skies, par ek hi colour:
+              saffron, white, green. 🇮🇳
             </p>
-            <div class="story-foot">Real moments • Premium Vlog</div>
+            <div class="blog-foot">Patriotic shorts • Premium Vlog</div>
           </article>
         </div>
       </section>
 
       <!-- ABOUT -->
-      <section id="about" class="about">
+      <section class="about">
         <h2>About</h2>
         <p>
-          Premium Vlog is more than content – it’s an experience.  
-          Here authenticity meets cinematic storytelling.  
-          Har vlog mein real streets, real food, real log, real reactions – bina filter ke.
+          Premium Vlog is more than content – it’s an experience.
+          Here authenticity meets cinematic storytelling. Har vlog mein real streets,
+          real food, real log, real reactions – bina filter ke.
         </p>
         <p>
-          Agar aapko asli life, asli Delhi / India ka flavour dekhna hai,
-          toh YouTube par Premium Vlog ko follow karo aur safar ka हिस्सा बनो.
+          Agar aapko asli life, asli Delhi / India ka flavour dekhna hai, toh YouTube par
+          Premium Vlog ko follow karo aur safar ka हिस्सा बनो.
         </p>
       </section>
 
@@ -390,14 +426,14 @@
       <section id="contact" class="contact">
         <h2>Contact</h2>
         <p>
-          Business enquiries, collaborations ya feedback ke liye mail karo:
-          <br/>
+          Business enquiries, collaborations ya feedback ke liye mail karo:<br/>
           <a href="mailto:hello@premiumvlog.in">hello@premiumvlog.in</a>
         </p>
         <p>
-          Social:  
-          <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88" target="_blank" rel="noopener">YouTube</a> ·
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          Social:<br/>
+          <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
+             target="_blank" rel="noopener">YouTube</a> ·
+          <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
         </p>
       </section>
     </main>
@@ -407,5 +443,35 @@
       <div>Made with ❤️ for real stories.</div>
     </footer>
   </div>
+
+  <!-- Small JS: nav highlight + smooth scroll for sections -->
+  <script>
+    (function(){
+      const links = document.querySelectorAll('.nav-section');
+      function setActive(){
+        let hash = location.hash || '#home';
+        const key = hash.replace('#','') || 'home';
+        links.forEach(l => {
+          l.classList.toggle('active', l.dataset.section === key);
+        });
+      }
+      setActive();
+      window.addEventListener('hashchange', setActive);
+
+      links.forEach(link => {
+        link.addEventListener('click', function(e){
+          e.preventDefault();
+          const key = this.dataset.section;
+          const sec = document.getElementById(key);
+          if(sec){
+            history.pushState(null, "", '#' + key);
+            setActive();
+            sec.scrollIntoView({behavior:'smooth', block:'start'});
+          }
+        });
+      });
+    })();
+  </script>
 </body>
-</html>
+        </html>
+        
