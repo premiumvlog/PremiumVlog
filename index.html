@@ -1,242 +1,411 @@
-
-
 <!doctype html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Premium Vlog — Travel · Food · Stories</title>
-  <meta name="description" content="Premium Vlog — travel, street food, stories and daily vlogs." />
-  <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="styles.css" />
+  <title>Premium Vlog – Travel • Food • Stories</title>
+  <meta name="description" content="Premium Vlog – short travel films, street food, city stories and daily vlogs." />
 
-  <!-- NAV STYLES -->
   <style>
-    
-    
-<nav class="nav" style="display:flex; gap:22px; align-items:center; justify-content:flex-end;">
+    :root{
+      --bg:#f5f5f7;
+      --card:#ffffff;
+      --text:#111111;
+      --muted:#666666;
+      --accent:#ff4d4d;
+      --yt:#FF0000;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(15,15,15,0.06);
+    }
 
-  <!-- Home -->
-  <a href="/" style="color:#444; font-weight:500; text-decoration:none;">
-    Home
-  </a>
+    *{ box-sizing:border-box; }
 
-  <!-- Vlog -->
-  <a href="/vlog/" style="color:#444; font-weight:500; text-decoration:none;">
-    Vlog
-  </a>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+    }
 
-  <!-- About -->
-  <a href="/about/" style="color:#444; font-weight:500; text-decoration:none;">
-    About
-  </a>
+    a{ color:inherit; }
 
-  <!-- Contact -->
-  <a href="/contact/" style="color:#444; font-weight:500; text-decoration:none;">
-    Contact
-  </a>
+    .page{
+      max-width:1120px;
+      margin:0 auto;
+      padding:12px 16px 40px;
+    }
 
-  <!-- YouTube BUTTON – real link you gave -->
-  <a
-    href="https://youtube.com/@premiumvlogg?si=u0DASTWts6FLfTQS"
-    target="_blank"
-    style="
-      background:#FF0000;
-      color:#fff;
-      padding:8px 18px;
-      border-radius:12px;
+    /* HEADER */
+    .site-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 0 14px;
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(12px);
+      background:rgba(245,245,247,0.94);
+    }
+    .site-title{
       font-weight:700;
+      font-size:18px;
+    }
+    .nav{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-size:14px;
+    }
+    .nav-link{
       text-decoration:none;
-      box-shadow:0 4px 12px rgba(255,0,0,0.35);
-    "
-  >
-    YouTube
-  </a>
+      color:#444;
+      font-weight:500;
+      position:relative;
+      padding-bottom:3px;
+    }
+    .nav-link:hover{
+      color:#000;
+    }
+    .nav-link.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:2px;
+      background:var(--accent);
+      border-radius:999px;
+    }
+    .btn-yt{
+      text-decoration:none;
+      background:var(--yt);
+      color:#fff;
+      padding:7px 18px;
+      border-radius:999px;
+      font-weight:600;
+      box-shadow:0 8px 20px rgba(255,0,0,0.4);
+      display:inline-block;
+      white-space:nowrap;
+    }
 
-</nav>
-    
-</nav>
-    
+    /* HERO */
+    .hero{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      margin-top:12px;
+      padding:24px 22px;
+      border-radius:var(--radius);
+      background:#ffffff;
+      box-shadow:var(--shadow);
+    }
+    .hero-text{
+      flex:1 1 260px;
+      min-width:0;
+    }
+    .hero-heading{
+      font-size:28px;
+      font-weight:800;
+      margin:0 0 10px;
+    }
+    .hero-sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.5;
+      max-width:420px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      padding:9px 18px;
+      border-radius:999px;
+      font-weight:600;
+      box-shadow:0 8px 22px rgba(255,77,77,0.35);
+      display:inline-block;
+    }
+    .hero-tag{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .hero-logo{
+      flex:0 0 220px;
+      text-align:center;
+    }
+    .logo-box{
+      border-radius:18px;
+      background:#faf7ef;
+      padding:26px 10px;
+      box-shadow:var(--shadow);
+      font-weight:800;
+      letter-spacing:2px;
+      color:#c19a41;
+      font-size:24px;
+      line-height:1.3;
+    }
 
-      
-    
-      
-  </header>
+    /* SECTIONS */
+    h2.section-title{
+      margin:26px 0 10px;
+      font-size:20px;
+    }
 
-  <main class="wrap main">
-    <!-- HERO -->
-    <section class="hero" aria-label="hero">
-      <div class="hero-inner">
-        <div class="hero-left">
-          <h1>Travel • Food • Stories — <strong>Premium Vlog</strong></h1>
-          <p class="lead">Short travel films, street food, city stories and daily vlogs. Follow our latest vlogs on YouTube.</p>
-          <a class="btn" href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">Watch Latest</a>
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+    .video-card, .story-card{
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .video-thumb img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+    .video-body{
+      padding:10px 12px 14px;
+    }
+    .video-title{
+      font-weight:600;
+      margin:0 0 4px;
+      font-size:14px;
+    }
+    .video-meta{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .story-card{
+      padding:14px 14px 16px;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .story-title{
+      margin:0 0 6px;
+      font-weight:600;
+    }
+    .story-foot{
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    .about, .contact{
+      margin-top:20px;
+      padding:18px 16px;
+      border-radius:var(--radius);
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .contact a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    footer{
+      margin-top:28px;
+      padding-top:12px;
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:8px;
+      border-top:1px solid #e0e0e0;
+    }
+    footer a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:800px){
+      .card-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .hero{ padding:20px 16px; }
+      .hero-heading{ font-size:22px; }
+    }
+    @media (max-width:560px){
+      .card-grid{ grid-template-columns:1fr; }
+      .site-header{ flex-direction:column; align-items:flex-start; gap:6px; }
+      .nav{ justify-content:flex-start; flex-wrap:wrap; gap:14px; }
+      .page{ padding:10px 12px 32px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="site-title">Premium Vlog</div>
+      <nav class="nav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#vlogs" class="nav-link">Vlog</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
+           target="_blank"
+           rel="noopener"
+           class="btn-yt">
+          YouTube
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-text">
+          <h1 class="hero-heading">Travel • Food • Stories — Premium Vlog</h1>
+          <p class="hero-sub">
+            Short travel films, street food, city stories and daily vlogs from real streets and real people.
+            Follow our latest vlogs on YouTube in their most premium form.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary"
+               href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
+               target="_blank"
+               rel="noopener">
+              ▶ Watch Latest Vlog
+            </a>
+            <span class="hero-tag">New episodes, real moments, everyday life in cinematic style.</span>
+          </div>
         </div>
-        <div class="hero-right">
-          <!-- hero image must be at repo root named hero.png -->
-          <img src="/hero.png" alt="Premium Vlog Hero Image" />
+
+        <div class="hero-logo">
+          <div class="logo-box">
+            PV<br/>
+            PREMIUM<br/>
+            VLOG
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- LATEST VIDEOS GRID -->
-    <section id="latest" class="grid-section">
-      <h2>Latest videos</h2>
-      <div class="grid" id="videosGrid">
+      <!-- LATEST VIDEOS -->
+      <section id="vlogs">
+        <h2 class="section-title">Latest videos</h2>
 
-        <article class="card">
-          <a href="https://youtu.be/N-7N3cyYIxw?si=jIsuq5Pft00-kXq8" target="_blank" rel="noopener">
-            <div class="thumb">
-              <img src="https://img.youtube.com/vi/N-7N3cyYIxw/hqdefault.jpg" alt="Chor Minar thumbnail" />
+        <div class="card-grid">
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com" target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/VIDEO_ID_1/hqdefault.jpg" alt="Chor Minar Vlog thumbnail">
+            </a>
+            <div class="video-body">
+              <p class="video-title">Chor Minar Vlog</p>
+              <p class="video-meta">Street walk, night shots and story behind the place.</p>
             </div>
-            <div class="card-body">
-              <h3>Chor Minar Vlog</h3>
-              <p class="muted">Street walk, night shots and story behind the place.</p>
+          </article>
+
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com" target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="DLF Select City Walk thumbnail">
+            </a>
+            <div class="video-body">
+              <p class="video-title">DLF / Select City Walk</p>
+              <p class="video-meta">Mall walk, food courts and city vibes.</p>
             </div>
-          </a>
-        </article>
+          </article>
 
-        <article class="card">
-          <a href="https://youtu.be/ZAn8XKfBxlY?si=M3IMvZzTTS-DXn9a" target="_blank" rel="noopener">
-            <div class="thumb">
-              <img src="https://img.youtube.com/vi/ZAn8XKfBxlY/hqdefault.jpg" alt="DLF Mall thumbnail" />
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com" target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/VIDEO_ID_3/hqdefault.jpg" alt="Popular short thumbnail">
+            </a>
+            <div class="video-body">
+              <p class="video-title">Popular Short — Flag</p>
+              <p class="video-meta">Short clip that got most views.</p>
             </div>
-            <div class="card-body">
-              <h3>DLF / Select City Walk</h3>
-              <p class="muted">Mall walk, food courts and city vibes.</p>
-            </div>
-          </a>
-        </article>
+          </article>
+        </div>
+      </section>
 
-        <article class="card">
-          <a href="https://youtube.com/shorts/wssAsPHLQBI?si=-CnixJs_tiigzcO0" target="_blank" rel="noopener">
-            <div class="thumb">
-              <img src="https://img.youtube.com/vi/wssAsPHLQBI/hqdefault.jpg" alt="Popular short thumbnail" />
-            </div>
-            <div class="card-body">
-              <h3>Popular Short — Flag</h3>
-              <p class="muted">Short clip that got most views.</p>
-            </div>
-          </a>
-        </article>
+      <!-- SHORT STORIES -->
+      <section>
+        <h2 class="section-title">Short stories (Hindi)</h2>
+        <div class="card-grid">
+          <article class="story-card">
+            <h3 class="story-title">अनकही कहानियाँ | इतिहास जो कहीं नहीं सुना…</h3>
+            <p>
+              दोस्तों, इस vlog में दिखाऊँगा वो जगहें जो किताबों में नहीं मिलतीं।
+              हर दीवार की अपनी कहानी है और मैं उन्हीं आवाज़ों को आपके तक लाता हूँ – Premium Vlog की नज़र से।
+            </p>
+            <div class="story-foot">Exclusive tales • Premium Vlog</div>
+          </article>
 
-      </div>
-    </section>
+          <article class="story-card">
+            <h3 class="story-title">सफर से पहले की स्मार्ट तैयारी – सिर्फ Premium अंदाज़ में</h3>
+            <p>
+              Budget-friendly trips, metro rides, exit gate se best रस्ता,
+              famous food lanes और सही timing – सब कुछ smart planning के साथ ताकि आपका हर vlog day OFF न जाए।
+            </p>
+            <div class="story-foot">Travel tips • Premium Vlog</div>
+          </article>
 
-    <!-- THREE FEATURE BOXES -->
-    <section class="features wrap-features">
-      <div class="box">
-        <h4>📜 अनकही कहानियाँ | इतिहास जो कहीं नहीं सुना… 🔥🔥🔥</h4>
-        
+          <article class="story-card">
+            <h3 class="story-title">हर मोड़, हर पल… एक नया vlog</h3>
+            <p>
+              कभी सड़क का शोर, कभी रात की शांति, कभी street food की खुशबू –
+              हर frame में एक नया mood, एक नई कहानी। बस कैमरा on, दिल open – यही है Premium Vlog।
+            </p>
+            <div class="story-foot">Real moments • Premium Vlog</div>
+          </article>
+        </div>
+      </section>
 
-        
-        <p>दोस्तों आपको दिखाऊँगा वो इतिहास 📜</p>
-       
-  
-        
-<p>जो किताबों ने लिखा,ना दुनिया ने सुना। 🤐</p>
-
-  
-
-<p>हर गली के पीछे एक राज़ है…🌚</p>
-
-        
-      
-<p>हर महल की दीवार बोलती है…🧱</p>   
-        
-        
-      <p>और हर खंडहर में आज भी गूँजती हैं पुरानी दास्तानें… 🏚️</p>
-        
-
-      </p>
-        
-
-<p>तो चलिए मेरे साथ इस रोमांचक सफर में… ✈️</p>
-
-        
-        
-<p>क्योंकि कहानी अभी खत्म नहीं हुई है! 📖</p>
-
-      
-
-<p>🌟 Exclusive Tales सिर्फ यहाँ 👇</p>
-        
-        
-                                <p>Premium Vlog</p>
-
-        
-<p>🎥 Subscribe & Follow करें – YouTube ▶️ | Instagram 📸 | Facebook 💬</p>
-
-
-        
-        
-<p>👉 अगला रहस्य आपके इंतज़ार में है⏳👀</p>
-
-        
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <h2>About</h2>
+        <p>
+          Premium Vlog is more than content – it’s an experience.  
+          Here authenticity meets cinematic storytelling.  
+          Har vlog mein real streets, real food, real log, real reactions – bina filter ke.
         </p>
-        
-      </div>
-      <div class="box">
-        <h4>🌍 सफर से पहले की स्मार्ट तैयारी, सिर्फ Premium वाले अंदाज़ में! 🚀✨
-        </h4>
-
-        ✨ दोस्तों, घूमने का मजा तभी आता है जब सही जानकारी पहले मिल जाये ये जगह किस टाइम खुलता और बंद और कौन सा दिन Off रहता हैं  📍</p>
-        
-<p>टिकट और budget के क्या हिसाब हैं? नज़दीकी Metro स्टेशन, exit gate और best रास्ता? Famous food local vibes भी मिलेंगे 😋
-
-        
-<p>अब सफर होगा smart + मजेदार ⚡ क्योंकि info मिलेगा Premium Style में! 🚀</p>
-
-        
-<p>जुड़े रहो… अपने भाई असली adventure Premium Vlog के साथ क्योंकि 💛</p>
-        
- <p>👉 अगली मंज़िल भी तुम्हें यहीं मिलेगी! 👀</p>
-        
+        <p>
+          Agar aapko asli life, asli Delhi / India ka flavour dekhna hai,
+          toh YouTube par Premium Vlog ko follow karo aur safar ka हिस्सा बनो.
         </p>
-        
-      </div>
-      <div class="box">
-        <h4> 🌁 स्ट्रीट लाइफ़ वाइब्स ✨— हर मोड़, हर पल… एक नया Vlog 😇
-        </h4>
-        <p>दुनिया की सड़कों से लेकर 🇮🇳 इंडिया के हर शहर तक—
-मैं आपको दिखाता हूँ असली लाइफ़ की असली वाइब्स।
-कभी पार्क का सुकून 🌳, कभी म्यूज़ियम की पुरानी कहानियाँ 🏛️,
-तो कभी स्ट्रीट फूड की खुशबू और गरमा-गरम स्वाद 🍢।
+      </section>
 
-हर मोड़ पर एक नया पल मिलता है—
-नए चेहरे, नई जगहें, नई कहानियाँ…
-और मैं इन्हें आपके लिए कैप्चर करता हूँ
-एकदम cinematic, raw और real vlog स्टाइल में ✨
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>
+          Business enquiries, collaborations ya feedback ke liye mail karo:
+          <br/>
+          <a href="mailto:hello@premiumvlog.in">hello@premiumvlog.in</a>
+        </p>
+        <p>
+          Social:  
+          <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88" target="_blank" rel="noopener">YouTube</a> ·
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </section>
+    </main>
 
-तो चलो दोस्तों, इस सफर में मेरे साथ जुड़ो…
-हम रोज़ दुनिया को एक नई नजर से देखेंगे 🌎
-Subscribe, follow और जुड़े रहें हमारे साथ ❤️🙌</p>
-      </div>
-    </section>
-
-    <!-- SMALL INFO BOXES -->
-    <section class="info-cards">
-      <div class="info"> <h5>Premium Vlog 🇮🇳</h5> <p>This is Premium Vlog 🔥
-Where authenticity meets cinematic storytelling 👁️🎬
-Moments captured in their most premium form in every time always ✨ </p></div>
-      <div class="info"> <h5>Premium Vlog ❤️</h5> <p> Premium Vlog — more than content, it's an experience 🌟🎥
-Raw moments ko banate hain powerful visuals 📸🔥
-Watch life unfold in its most premium form ✨  </p></div>
-      <div class="info"> <h5>Premium Vlog ✋ </h5> <p>Premium Vlog — real moments, premium storytelling 🎬✨
-Har frame ko banaya hai passion, creativity aur authenticity se 🎥🔥
-Experience life in its most premium form 🌟</p></div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p>© 2025 Premium Vlog</p>
-      <p class="social"><a href="https://youtube.com/@premiumvlogg?si=iTw6IsyqPgAurQJE" target="_blank" rel="noopener">YouTube</a> · <a href="#" target="_blank">Instagram</a></p>
-    </div>
-  </footer>
-
+    <footer>
+      <div>© 2025 Premium Vlog</div>
+      <div>Made with ❤️ for real stories.</div>
+    </footer>
+  </div>
 </body>
 </html>
-
-
