@@ -15,6 +15,8 @@
       --accent:#ff4d4d;
       --yt:#FF0000;
       --ig-grad:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+      --fb:#1877F2;
+      --x:#000000;
       --radius:14px;
       --shadow:0 10px 30px rgba(15,15,15,0.06);
     }
@@ -55,7 +57,7 @@
     }
     .nav{
       display:flex;
-      gap:10px;
+      gap:8px;
       align-items:center;
       font-size:13px;
       flex-wrap:wrap;
@@ -63,7 +65,7 @@
     }
     .nav-pill{
       text-decoration:none;
-      padding:7px 14px;
+      padding:7px 13px;
       border-radius:999px;
       font-weight:600;
       display:inline-block;
@@ -73,24 +75,28 @@
     }
     .nav-pill:hover{
       transform:translateY(-1px);
-      box-shadow:0 4px 10px rgba(0,0,0,0.06);
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
     }
 
     .pill-home{ background:#ffffff; border-color:#e0e0e0; color:#333; }
     .pill-vlog{ background:#eef3ff; border-color:#c3d0ff; color:#2349c5; }
     .pill-blog{ background:#f3ecff; border-color:#d1c3ff; color:#5d3ac7; }
     .pill-contact{ background:#e6fbf4; border-color:#b7f0dd; color:#0c7a55; }
-    .pill-ig{ background:var(--ig-grad); color:#fff; border:none; }
-    .pill-yt{ background:var(--yt); color:#fff; border:none; box-shadow:0 8px 20px rgba(255,0,0,0.45); }
 
-    /* ACTIVE state (Home / Vlog / Blog / Contact) */
+    .pill-yt{ background:var(--yt); color:#fff; border:none; box-shadow:0 6px 16px rgba(255,0,0,0.45); }
+    .pill-ig{ background:var(--ig-grad); color:#fff; border:none; }
+    .pill-fb{ background:var(--fb); color:#fff; border:none; }
+    .pill-x{ background:var(--x); color:#fff; border:none; }
+
+    /* ACTIVE (Home/Vlog/Blog/Contact) */
     .nav-pill.active{
-      box-shadow:0 0 0 2px rgba(0,0,0,0.05), 0 6px 16px rgba(0,0,0,0.12);
+      box-shadow:0 0 0 2px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.16);
+      transform:translateY(-1px);
     }
-    .pill-home.active{ border-color:var(--accent); color:var(--accent); }
-    .pill-vlog.active{ border-color:#2349c5; }
-    .pill-blog.active{ border-color:#5d3ac7; }
-    .pill-contact.active{ border-color:#0c7a55; }
+    .pill-home.active{ border-color:var(--accent); color:var(--accent); background:#ffecec; }
+    .pill-vlog.active{ border-color:#2349c5; background:#2349c5; color:#fff; }
+    .pill-blog.active{ border-color:#5d3ac7; background:#5d3ac7; color:#fff; }
+    .pill-contact.active{ border-color:#0c7a55; background:#0c7a55; color:#fff; }
 
     /* HERO */
     .hero{
@@ -115,7 +121,7 @@
       margin:0 0 10px;
     }
     .hero-sub{
-      margin:0 0 18px;
+      margin:0 0 16px;
       color:var(--muted);
       line-height:1.5;
       max-width:420px;
@@ -126,6 +132,7 @@
       flex-wrap:wrap;
       align-items:center;
     }
+
     .btn-primary{
       background:var(--accent);
       color:#fff;
@@ -133,13 +140,27 @@
       padding:9px 18px;
       border-radius:999px;
       font-weight:600;
-      box-shadow:0 8px 22px rgba(255,77,77,0.35);
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border:none;
+      cursor:pointer;
+      animation:pulse 1.6s infinite;
     }
-    .hero-tag{
+    @keyframes pulse{
+      0%{ box-shadow:0 0 0 0 rgba(255,77,77,0.55); transform:scale(1); }
+      50%{ box-shadow:0 0 0 14px rgba(255,77,77,0); transform:scale(1.03); }
+      100%{ box-shadow:0 0 0 0 rgba(255,77,77,0); transform:scale(1); }
+    }
+
+    .hero-hint{
       font-size:12px;
       color:var(--muted);
+      display:flex;
+      align-items:center;
+      gap:6px;
     }
+
     .hero-logo{
       flex:0 0 220px;
       text-align:center;
@@ -173,6 +194,7 @@
       box-shadow:var(--shadow);
       overflow:hidden;
     }
+
     .video-thumb img{
       display:block;
       width:100%;
@@ -192,12 +214,6 @@
       font-size:13px;
     }
 
-    .story-lead{
-      margin:4px 0 12px;
-      font-size:14px;
-      color:var(--muted);
-    }
-
     .blog-card{
       padding:14px 14px 16px;
       font-size:13px;
@@ -205,13 +221,15 @@
     }
     .blog-title{
       margin:0 0 6px;
-      font-weight:600;
+      font-weight:700;
     }
-    .blog-foot{
-      margin-top:8px;
-      font-size:12px;
+    .blog-tag{
+      font-size:11px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.6px;
       color:var(--muted);
-      font-weight:500;
+      margin-bottom:4px;
     }
 
     .about, .contact{
@@ -268,22 +286,35 @@
     <header class="site-header">
       <div class="site-title">Premium Vlog</div>
       <nav class="nav">
-        <a href="#home"   class="nav-pill pill-home nav-section"    data-section="home">Home</a>
-        <a href="#vlogs"  class="nav-pill pill-vlog nav-section"    data-section="vlogs">Vlog</a>
-        <a href="#blog"   class="nav-pill pill-blog nav-section"    data-section="blog">Blog</a>
+        <!-- Internal sections -->
+        <a href="#home"    class="nav-pill pill-home nav-section"    data-section="home">Home</a>
+        <a href="#vlogs"   class="nav-pill pill-vlog nav-section"    data-section="vlogs">Vlog</a>
+        <a href="#blog"    class="nav-pill pill-blog nav-section"    data-section="blog">Blog</a>
         <a href="#contact" class="nav-pill pill-contact nav-section" data-section="contact">Contact</a>
 
-        <!-- Instagram – apna real handle daal lena -->
-        <a href="https://instagram.com/" target="_blank" rel="noopener" class="nav-pill pill-ig">
+        <!-- Social buttons -->
+        <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
+           target="_blank" rel="noopener"
+           class="nav-pill pill-yt">
+          YouTube
+        </a>
+
+        <a href="https://www.instagram.com/premiumvlogg?igsh=MXRkeWo5bnJ1MW5mMQ=="
+           target="_blank" rel="noopener"
+           class="nav-pill pill-ig">
           Instagram
         </a>
 
-        <!-- YouTube channel -->
-        <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
-           target="_blank"
-           rel="noopener"
-           class="nav-pill pill-yt">
-          YouTube
+        <a href="https://www.facebook.com/share/17XN6wmB2h/"
+           target="_blank" rel="noopener"
+           class="nav-pill pill-fb">
+          Facebook
+        </a>
+
+        <a href="https://x.com/PremiumVlogg"
+           target="_blank" rel="noopener"
+           class="nav-pill pill-x">
+          Twitter X
         </a>
       </nav>
     </header>
@@ -304,7 +335,9 @@
                rel="noopener">
               ▶ Watch Latest Vlog
             </a>
-            <span class="hero-tag">New episodes, real moments, everyday life in cinematic style.</span>
+            <div class="hero-hint">
+              ⬅️ यहीं क्लिक करें – latest short vlog open होगा
+            </div>
           </div>
         </div>
 
@@ -355,7 +388,6 @@
             <a class="video-thumb"
                href="https://youtube.com/playlist?list=PLgc7gu1AV89CSNSiW3YtgxfMKYwsdkZsW&si=W7tcMADSBxZLpMYo"
                target="_blank" rel="noopener">
-              <!-- Flag shorts playlist – thumbnail just for preview -->
               <img src="https://img.youtube.com/vi/xNy2up-3Wjg/hqdefault.jpg"
                    alt="Mera Bharat Mahan playlist thumbnail">
             </a>
@@ -367,43 +399,139 @@
         </div>
       </section>
 
-      <!-- BLOG / SHORT STORIES -->
+      <!-- BLOG / SHORT STORIES (LANDMARKS + FOOD + COUNTRIES + CITIES) -->
       <section id="blog">
-        <h2 class="section-title">🔥 अनकही कहानियाँ • Premium Short Stories ✨</h2>
-        <p class="story-lead">
-          दोस्तों, यहाँ मिलेंगी वो छोटी–छोटी कहानियाँ जो हर vlog के पीछे छुपी रहती हैं –
-          kabhi street food ka scene, kabhi late–night walk, kabhi desh ke liye flag moments. 💛
-        </p>
+        <h2 class="section-title">🔥 अनकही कहानियाँ • Premium Short Blog ✨</h2>
 
+        <!-- Landmarks -->
+        <div class="card-grid" style="margin-bottom:16px;">
+          <article class="blog-card">
+            <div class="blog-tag">🌆 Burj Khalifa — Dubai</div>
+            <h3 class="blog-title">दुनिया की सबसे ऊँची मुस्कान</h3>
+            <p>
+              Burj Khalifa 2010 में खुला – लगभग 828m ऊँचा।  
+              टिकट सुबह से रात तक मिलते हैं, सबसे मजेदार time sunset का होता है जब
+              शहर सोने जैसा चमकता है। ज़्यादातर लोग Dubai Mall से entry लेते हैं और
+              observation deck पर खड़े होकर नीचे खिलौने जैसी cars देखते हैं।
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🕌 Taj Mahal — Agra</div>
+            <h3 class="blog-title">सफेद पत्थर में छुपा प्यार</h3>
+            <p>
+              1600s में बना Taj Mahal सुबह ki हल्की रोशनी में सबसे ज़्यादा खूबसूरत लगता है।
+              Friday को अंदर की मस्जिद नमाज़ के लिए खुलती है, बाक़ी दिन पर्य़टकों के लिए।
+              Entry gate se चलते हुए जैसे–जैसे monument बड़ा होता जाता है, वैसे–वैसे दिल
+              भी शान्त हो जाता है।
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🇮🇳 India Gate — Delhi</div>
+            <h3 class="blog-title">रात की रौशनी, सड़क की चहल–पहल</h3>
+            <p>
+              India Gate 1930s में बना war memorial है। Shaam होते ही यहाँ families,
+              ice-cream wale, bubble guns aur tiranga jhanda सब ek frame mein aa जाते हैं।
+              टिकट नहीं, बस दिल और थोड़ी सी देर चाहिए – baith kar हवा khane ke लिए।
+            </p>
+          </article>
+        </div>
+
+        <!-- Food stories -->
+        <h2 class="section-title">🍲 Street Food Stories</h2>
+        <div class="card-grid" style="margin-bottom:16px;">
+          <article class="blog-card">
+            <div class="blog-tag">🍛 Biryani</div>
+            <h3 class="blog-title">दम से निकली खुशबू, सदीयों की कहानी</h3>
+            <p>
+              कहा जाता है biryani की शुरुआत फारसी रसोई से हुई, par आज हर शहर की अपनी style है –
+              Hyderabad, Lucknow, Kolkata. Har plate में चावल, मसाला और कहानी ka अलग ratio होता है,
+              isliye लोग favourite biryani ke लिए km door tak drive कर लेते हैं।
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🥙 Chole Bhature</div>
+            <h3 class="blog-title">Dilli की Sunday morning ka hero</h3>
+            <p>
+              Purani Delhi se ले कर Punjab तक, chole bhature वो combo है jo पेट भी भरता है
+              aur mood bhi। गरम–गरम फूले हुए bhature, मसालेदार chole aur ऊपर se कटे प्याज़ –
+              एक plate खत्म होते–होते अगली का मन हो जाता है।
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🧡 Jalebi</div>
+            <h3 class="blog-title">मीठी भी… और मुहावरेदार भी</h3>
+            <p>
+              ताज़ा गरम jalebi chai ke साथ मिले तो दिन बन जाता है।  
+              Aur hamare desh में एक मज़ेदार line भी famous है –
+              “ बातों को jalebi की तरह मत घुमा!”  
+              मतलब seedhi simple baat bolo, वरना dimaag bhi syrup में फँस जाता है।
+            </p>
+          </article>
+        </div>
+
+        <!-- Countries mini cards -->
+        <h2 class="section-title">🌍 Countries & People</h2>
+        <div class="card-grid" style="margin-bottom:16px;">
+          <article class="blog-card">
+            <div class="blog-tag">🇮🇳 India</div>
+            <h3 class="blog-title">अलग–अलग ज़ुबान, एक ही दिल</h3>
+            <p>
+              North ke pahad, West ki beaches, East ke tea gardens aur South ke मंदिर –
+              itna variety ki har कुछ घंटे में language, food aur hairstyle तक बदल जाता है.
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🇯🇵 Japan</div>
+            <h3 class="blog-title">तकनीक और तहज़ीब साथ–साथ</h3>
+            <p>
+              Bullet trains, anime, robots – लेकिन साथ में नम्रता, respect aur साफ़–सुथरी
+              streets. Log samay ka itna ध्यान रखते हैं ki train ka 1 minute delay bhi news बन जाए।
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🇦🇪 UAE</div>
+            <h3 class="blog-title">रेगिस्तान से skyline तक</h3>
+            <p>
+              यहाँ oil se le kar tourism तक sab fast speed se grow hua. Burj Khalifa, desert safari,
+              luxury malls – sab ek hi chhote se map par fit ho गया, isliye दुनिया भर ke travellers yahan aate हैं।
+            </p>
+          </article>
+        </div>
+
+        <!-- Indian cities -->
+        <h2 class="section-title">🏙 Indian Cities & Everyday Life</h2>
         <div class="card-grid">
           <article class="blog-card">
-            <h3 class="blog-title">Real streets, real stories</h3>
+            <div class="blog-tag">🏛 Delhi</div>
+            <h3 class="blog-title">राजधानी जहाँ इतिहास और metro साथ चलते हैं</h3>
             <p>
-              Every vlog starts in a real lane – autos, horns, chai ki tapri aur logon ke
-              beech se nikalti ek kahani. Premium Vlog captures those raw moments jahan
-              script nahi, bas life chal rahi hoti hai.
+              Old Delhi ki galiyan, CP ke cafés, India Gate ki रात और metro ke अंदर का रोज़ का rush –
+              yahi mix Delhi ko capital se zyada ek mood बना देता है.
             </p>
-            <div class="blog-foot">City vibes • Premium Vlog</div>
           </article>
 
           <article class="blog-card">
-            <h3 class="blog-title">Food that feels like home</h3>
+            <div class="blog-tag">🌊 Mumbai</div>
+            <h3 class="blog-title">sapno ka शहर, local train की speed</h3>
             <p>
-              From late–night momos to early–morning chai, har plate ke saath ek memory
-              judi hoti hai. We don’t just show food, we show the feeling – steam, smell
-              aur first bite ka reaction, bilkul real.
+              Marine Drive ki हवा, film city ka glamour aur dhoop–बारिश mein bhi चलती local trains –
+              yahan लोग गिर कर bhi अगले din फिर office पहुँच जाते हैं.
             </p>
-            <div class="blog-foot">Street food tales • Premium Vlog</div>
           </article>
 
           <article class="blog-card">
-            <h3 class="blog-title">Flag, frames & feelings</h3>
+            <div class="blog-tag">🌾 Bihar</div>
+            <h3 class="blog-title">mitti ki खुशबू और मेहनत की ताकत</h3>
             <p>
-              Mera Bharat Mahan playlist sirf Tiranga ka shot nahi hai – har short ek
-              chhota sa salute hai. Different places, different skies, par ek hi colour:
-              saffron, white, green. 🇮🇳
+              Yahan se har साल लाखों students, workers aur officers पूरे देश में nikalते हैं.
+              Chhath Puja, litchi, और गांवों की सादगी – sab मिल कर Bihar ko अलग पहचान देते हैं.
             </p>
-            <div class="blog-foot">Patriotic shorts • Premium Vlog</div>
           </article>
         </div>
       </section>
@@ -430,10 +558,16 @@
           <a href="mailto:hello@premiumvlog.in">hello@premiumvlog.in</a>
         </p>
         <p>
-          Social:<br/>
-          <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
-             target="_blank" rel="noopener">YouTube</a> ·
-          <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+          Support / share / subscribe ke लिए – aap jitne social platforms use karte हैं,
+          wahan hame follow kar sakte हैं. Niche diye gaye buttons se direct profile par
+          पहुँच जाएंगे. ❤️
+        </p>
+        <p>
+          Social buttons (direct links):<br/>
+          <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88" target="_blank" rel="noopener">YouTube</a> ·
+          <a href="https://www.instagram.com/premiumvlogg?igsh=MXRkeWo5bnJ1MW5mMQ==" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://www.facebook.com/share/17XN6wmB2h/" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="https://x.com/PremiumVlogg" target="_blank" rel="noopener">Twitter X</a>
         </p>
       </section>
     </main>
@@ -444,19 +578,22 @@
     </footer>
   </div>
 
-  <!-- Small JS: nav highlight + smooth scroll for sections -->
+  <!-- JS: nav highlight + smooth scroll for internal sections -->
   <script>
     (function(){
       const links = document.querySelectorAll('.nav-section');
-      function setActive(){
+      function setActiveFromHash(){
         let hash = location.hash || '#home';
-        const key = hash.replace('#','') || 'home';
+        let key = hash.replace('#','') || 'home';
+        if(!['home','vlogs','blog','contact'].includes(key)){
+          key = 'home';
+        }
         links.forEach(l => {
           l.classList.toggle('active', l.dataset.section === key);
         });
       }
-      setActive();
-      window.addEventListener('hashchange', setActive);
+      setActiveFromHash();
+      window.addEventListener('hashchange', setActiveFromHash);
 
       links.forEach(link => {
         link.addEventListener('click', function(e){
@@ -464,14 +601,4 @@
           const key = this.dataset.section;
           const sec = document.getElementById(key);
           if(sec){
-            history.pushState(null, "", '#' + key);
-            setActive();
-            sec.scrollIntoView({behavior:'smooth', block:'start'});
-          }
-        });
-      });
-    })();
-  </script>
-</body>
-        </html>
-        
+            his
