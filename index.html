@@ -144,7 +144,109 @@ function openShare(){
 
 </body>
 </html>
+<hr>
+<!-- PREMIUM WELCOME ALL-IN-ONE START -->
+<style>
+.welcome-wrapper {
+  width: 100%;
+  margin: 18px 0;
+  overflow: hidden;
+}
 
+.welcome-bar {
+  background: linear-gradient(90deg, #ff512f, #f09819, #dd2476);
+  border-radius: 16px;
+  padding: 14px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.welcome-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.6px;
+  animation: marqueeMove 16s linear infinite;
+  text-shadow: 0 0 12px rgba(255,255,255,0.7);
+}
+
+.welcome-text:hover {
+  color: #000;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 30px;
+}
+
+.typing {
+  border-right: 3px solid #fff;
+  padding-right: 6px;
+  animation: blink 1s infinite;
+}
+
+@keyframes marqueeMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes blink {
+  0% { border-color: transparent; }
+  50% { border-color: #fff; }
+  100% { border-color: transparent; }
+}
+</style>
+
+<div class="welcome-wrapper">
+  <div class="welcome-bar">
+    <div class="welcome-text">
+      <span id="typingText" class="typing"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+const texts = [
+  "✨🙏 Welcome to Premium Vlog 🔥🎥",
+  "🌍 Travel • 🍔 Food • 📸 Stories",
+  "🔥 Real Streets • Real People",
+  "❤️ Subscribe for Premium Content"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+const typingSpeed = 90;
+const eraseSpeed = 50;
+const delayBetween = 1500;
+const typingElement = document.getElementById("typingText");
+
+function typeText() {
+  if (charIndex < texts[textIndex].length) {
+    typingElement.textContent += texts[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeText, typingSpeed);
+  } else {
+    setTimeout(eraseText, delayBetween);
+  }
+}
+
+function eraseText() {
+  if (charIndex > 0) {
+    typingElement.textContent =
+      texts[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(eraseText, eraseSpeed);
+  } else {
+    textIndex = (textIndex + 1) % texts.length;
+    setTimeout(typeText, typingSpeed);
+  }
+}
+
+typeText();
+</script>
+<!-- PREMIUM WELCOME ALL-IN-ONE END -->
+
+<br>
 <!doctype html>
 <html lang="en">
 <head>
@@ -431,43 +533,22 @@ function openShare(){
   <div class="page">
     <!-- HEADER -->
     <header class="site-header">
-      <div class="site-title">Premium Vlog</div>
+      <div class="site-title"><h1>Premium Vlog</h1></div>
       <nav class="nav">
         <!-- Internal sections -->
-        <a href="#home"    class="nav-pill pill-home nav-section"    data-section="home">Home</a>
+        <h2> <a <h2href="#home"    class="nav-pill pill-home nav-section"    data-section="home">Home</a>
+        
         <a href="#vlogs"   class="nav-pill pill-vlog nav-section"    data-section="vlogs">Vlog</a>
         <a href="#blog"    class="nav-pill pill-blog nav-section"    data-section="blog">Blog</a>
-        <a href="#contact" class="nav-pill pill-contact nav-section" data-section="contact">Contact</a>
+        <a href="#contact" class="nav-pill pill-contact nav-section" data-section="contact">Contact</a> </h2>
 
         <!-- Social buttons -->
-        <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88"
-           target="_blank" rel="noopener"
-           class="nav-pill pill-yt">
-          YouTube
-        </a>
-
-        <a href="https://www.instagram.com/premiumvlogg?igsh=MXRkeWo5bnJ1MW5mMQ=="
-           target="_blank" rel="noopener"
-           class="nav-pill pill-ig">
-          Instagram
-        </a>
-
-        <a href="https://www.facebook.com/share/17XN6wmB2h/"
-           target="_blank" rel="noopener"
-           class="nav-pill pill-fb">
-          Facebook
-        </a>
-
-        <a href="https://x.com/PremiumVlogg"
-           target="_blank" rel="noopener"
-           class="nav-pill pill-x">
-          Twitter X
         </a>
       </nav>
     </header>
 
     <main>
-      <!-- HERO / HOME -->
+      <h1><!-- HERO / HOME --></h1>
       <section id="home" class="hero">
         <div class="hero-text">
           <h1 class="hero-heading">Travel • Food • Stories — Premium Vlog</h1>
@@ -633,119 +714,4 @@ function openShare(){
           </article>
 
           <article class="blog-card">
-            <div class="blog-tag">🇯🇵 Japan</div>
-            <h3 class="blog-title">तकनीक और तहज़ीब साथ–साथ</h3>
-            <p>
-              Bullet trains, anime, robots – लेकिन साथ में नम्रता, respect aur साफ़–सुथरी
-              streets. Log samay ka itna ध्यान रखते हैं ki train ka 1 minute delay bhi news बन जाए।
-            </p>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-tag">🇦🇪 UAE</div>
-            <h3 class="blog-title">रेगिस्तान से skyline तक</h3>
-            <p>
-              यहाँ oil se le kar tourism तक sab fast speed se grow hua. Burj Khalifa, desert safari,
-              luxury malls – sab ek hi chhote se map par fit ho गया, isliye दुनिया भर ke travellers yahan aate हैं।
-            </p>
-          </article>
-        </div>
-
-        <!-- Indian cities -->
-        <h2 class="section-title">🏙 Indian Cities & Everyday Life</h2>
-        <div class="card-grid">
-          <article class="blog-card">
-            <div class="blog-tag">🏛 Delhi</div>
-            <h3 class="blog-title">राजधानी जहाँ इतिहास और metro साथ चलते हैं</h3>
-            <p>
-              Old Delhi ki galiyan, CP ke cafés, India Gate ki रात और metro ke अंदर का रोज़ का rush –
-              yahi mix Delhi ko capital se zyada ek mood बना देता है.
-            </p>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-tag">🌊 Mumbai</div>
-            <h3 class="blog-title">sapno ka शहर, local train की speed</h3>
-            <p>
-              Marine Drive ki हवा, film city ka glamour aur dhoop–बारिश mein bhi चलती local trains –
-              yahan लोग गिर कर bhi अगले din फिर office पहुँच जाते हैं.
-            </p>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-tag">🌾 Bihar</div>
-            <h3 class="blog-title">mitti ki खुशबू और मेहनत की ताकत</h3>
-            <p>
-              Yahan se har साल लाखों students, workers aur officers पूरे देश में nikalते हैं.
-              Chhath Puja, litchi, और गांवों की सादगी – sab मिल कर Bihar ko अलग पहचान देते हैं.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="about">
-        <h2>About</h2>
-        <p>
-          Premium Vlog is more than content – it’s an experience.
-          Here authenticity meets cinematic storytelling. Har vlog mein real streets,
-          real food, real log, real reactions – bina filter ke.
-        </p>
-        <p>
-          Agar aapko asli life, asli Delhi / India ka flavour dekhna hai, toh YouTube par
-          Premium Vlog ko follow karo aur safar ka हिस्सा बनो.
-        </p>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>
-          Business enquiries, collaborations ya feedback ke liye mail karo:<br/>
-          <a href="mailto:HelloPremiumvlog@gmail.com">HelloPremiumvlog@gmail.com</a>
-          
-        </p>
-        <p>
-          Support / share / subscribe ke लिए – aap jitne social platforms use karte हैं,
-          wahan hame follow kar sakte हैं. Niche diye gaye buttons se direct profile par
-          पहुँच जाएंगे. ❤️
-        </p>
-        <p>
-          Social buttons (direct links):<br/>
-          <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88" target="_blank" rel="noopener">YouTube</a> ·
-          <a href="https://www.instagram.com/premiumvlogg?igsh=MXRkeWo5bnJ1MW5mMQ==" target="_blank" rel="noopener">Instagram</a> ·
-          <a href="https://www.facebook.com/share/17XN6wmB2h/" target="_blank" rel="noopener">Facebook</a> ·
-          <a href="https://x.com/PremiumVlogg" target="_blank" rel="noopener">Twitter X</a>
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      <div>© 2025 Premium Vlog</div>
-      <div>Made with ❤️ for real stories.</div>
-    </footer>
-  </div>
-
-  <!-- JS: nav highlight + smooth scroll for internal sections -->
-  <script>
-    (function(){
-      const links = document.querySelectorAll('.nav-section');
-      function setActiveFromHash(){
-        let hash = location.hash || '#home';
-        let key = hash.replace('#','') || 'home';
-        if(!['home','vlogs','blog','contact'].includes(key)){
-          key = 'home';
-        }
-        links.forEach(l => {
-          l.classList.toggle('active', l.dataset.section === key);
-        });
-      }
-      setActiveFromHash();
-      window.addEventListener('hashchange', setActiveFromHash);
-
-      links.forEach(link => {
-        link.addEventListener('click', function(e){
-          e.preventDefault();
-          const key = this.dataset.section;
-          const sec = document.getElementById(key);
-          i
+            <div class="blog-tag">🇯🇵 Japan</d
