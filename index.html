@@ -714,4 +714,119 @@ typeText();
           </article>
 
           <article class="blog-card">
-            <div class="blog-tag">🇯🇵 Japan</d
+            <div class="blog-tag">🇯🇵 Japan</div>
+            <h3 class="blog-title">तकनीक और तहज़ीब साथ–साथ</h3>
+            <p>
+              Bullet trains, anime, robots – लेकिन साथ में नम्रता, respect aur साफ़–सुथरी
+              streets. Log samay ka itna ध्यान रखते हैं ki train ka 1 minute delay bhi news बन जाए।
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🇦🇪 UAE</div>
+            <h3 class="blog-title">रेगिस्तान से skyline तक</h3>
+            <p>
+              यहाँ oil se le kar tourism तक sab fast speed se grow hua. Burj Khalifa, desert safari,
+              luxury malls – sab ek hi chhote se map par fit ho गया, isliye दुनिया भर ke travellers yahan aate हैं।
+            </p>
+          </article>
+        </div>
+
+        <!-- Indian cities -->
+        <h2 class="section-title">🏙 Indian Cities & Everyday Life</h2>
+        <div class="card-grid">
+          <article class="blog-card">
+            <div class="blog-tag">🏛 Delhi</div>
+            <h3 class="blog-title">राजधानी जहाँ इतिहास और metro साथ चलते हैं</h3>
+            <p>
+              Old Delhi ki galiyan, CP ke cafés, India Gate ki रात और metro ke अंदर का रोज़ का rush –
+              yahi mix Delhi ko capital se zyada ek mood बना देता है.
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🌊 Mumbai</div>
+            <h3 class="blog-title">sapno ka शहर, local train की speed</h3>
+            <p>
+              Marine Drive ki हवा, film city ka glamour aur dhoop–बारिश mein bhi चलती local trains –
+              yahan लोग गिर कर bhi अगले din फिर office पहुँच जाते हैं.
+            </p>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-tag">🌾 Bihar</div>
+            <h3 class="blog-title">mitti ki खुशबू और मेहनत की ताकत</h3>
+            <p>
+              Yahan se har साल लाखों students, workers aur officers पूरे देश में nikalते हैं.
+              Chhath Puja, litchi, और गांवों की सादगी – sab मिल कर Bihar ko अलग पहचान देते हैं.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about">
+        <h2>About</h2>
+        <p>
+          Premium Vlog is more than content – it’s an experience.
+          Here authenticity meets cinematic storytelling. Har vlog mein real streets,
+          real food, real log, real reactions – bina filter ke.
+        </p>
+        <p>
+          Agar aapko asli life, asli Delhi / India ka flavour dekhna hai, toh YouTube par
+          Premium Vlog ko follow karo aur safar ka हिस्सा बनो.
+        </p>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>
+          Business enquiries, collaborations ya feedback ke liye mail karo:<br/>
+          <a href="mailto:HelloPremiumvlog@gmail.com">HelloPremiumvlog@gmail.com</a>
+          
+        </p>
+        <p>
+          Support / share / subscribe ke लिए – aap jitne social platforms use karte हैं,
+          wahan hame follow kar sakte हैं. Niche diye gaye buttons se direct profile par
+          पहुँच जाएंगे. ❤️
+        </p>
+        <p>
+          Social buttons (direct links):<br/>
+          <a href="https://youtube.com/@premiumvlogg?si=mGnTNEhUasKVLr88" target="_blank" rel="noopener">YouTube</a> ·
+          <a href="https://www.instagram.com/premiumvlogg?igsh=MXRkeWo5bnJ1MW5mMQ==" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://www.facebook.com/share/17XN6wmB2h/" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="https://x.com/PremiumVlogg" target="_blank" rel="noopener">Twitter X</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© 2025 Premium Vlog</div>
+      <div>Made with ❤️ for real stories.</div>
+    </footer>
+  </div>
+
+  <!-- JS: nav highlight + smooth scroll for internal sections -->
+  <script>
+    (function(){
+      const links = document.querySelectorAll('.nav-section');
+      function setActiveFromHash(){
+        let hash = location.hash || '#home';
+        let key = hash.replace('#','') || 'home';
+        if(!['home','vlogs','blog','contact'].includes(key)){
+          key = 'home';
+        }
+        links.forEach(l => {
+          l.classList.toggle('active', l.dataset.section === key);
+        });
+      }
+      setActiveFromHash();
+      window.addEventListener('hashchange', setActiveFromHash);
+
+      links.forEach(link => {
+        link.addEventListener('click', function(e){
+          e.preventDefault();
+          const key = this.dataset.section;
+          const sec = document.getElementById(key);
+          i
