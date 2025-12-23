@@ -145,106 +145,177 @@ function openShare(){
 </body>
 </html>
 <hr>
-<!-- PREMIUM WELCOME ALL-IN-ONE START -->
+<!-- ULTRA PREMIUM WELCOME START -->
 <style>
-.welcome-wrapper {
+.premium-welcome-wrap {
   width: 100%;
-  margin: 18px 0;
+  margin: 20px 0;
   overflow: hidden;
 }
 
-.welcome-bar {
-  background: linear-gradient(90deg, #ff512f, #f09819, #dd2476);
-  border-radius: 16px;
-  padding: 14px 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+.premium-welcome-bar {
+  background: linear-gradient(
+    120deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  );
+  border-radius: 18px;
+  padding: 16px 0;
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
 }
 
-.welcome-text {
+.premium-welcome-text {
   display: inline-block;
   white-space: nowrap;
   padding-left: 100%;
-  font-size: 24px;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 23px;
+  font-weight: 700;
+  color: #f5f5f5;
   letter-spacing: 0.6px;
-  animation: marqueeMove 16s linear infinite;
-  text-shadow: 0 0 12px rgba(255,255,255,0.7);
+  animation: premiumMove 18s linear infinite;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.15);
 }
 
-.welcome-text:hover {
-  color: #000;
-  background: #fff;
-  padding: 6px 14px;
-  border-radius: 30px;
-}
-
-.typing {
-  border-right: 3px solid #fff;
+.premium-typing {
+  border-right: 2px solid rgba(255,255,255,0.7);
   padding-right: 6px;
-  animation: blink 1s infinite;
+  animation: caretBlink 1s infinite;
 }
 
-@keyframes marqueeMove {
+@keyframes premiumMove {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
 
-@keyframes blink {
+@keyframes caretBlink {
   0% { border-color: transparent; }
-  50% { border-color: #fff; }
+  50% { border-color: rgba(255,255,255,0.7); }
   100% { border-color: transparent; }
 }
 </style>
 
-<div class="welcome-wrapper">
-  <div class="welcome-bar">
-    <div class="welcome-text">
-      <span id="typingText" class="typing"></span>
+<div class="premium-welcome-wrap">
+  <div class="premium-welcome-bar">
+    <div class="premium-welcome-text">
+      <span id="premiumTyping" class="premium-typing"></span>
     </div>
   </div>
 </div>
 
 <script>
-const texts = [
-  "✨🙏 Welcome to Premium Vlog 🔥🎥",
-  "🌍 Travel • 🍔 Food • 📸 Stories",
-  "🔥 Real Streets • Real People",
-  "❤️ Subscribe for Premium Content"
+const premiumTexts = [
+  "✨ Welcome to Premium Vlog",
+  "🎥 Travel • Food • Stories",
+  "🌍 Real Streets • Real Stories",
+  "💎 Experience Content in Premium Quality"
 ];
 
-let textIndex = 0;
-let charIndex = 0;
-const typingSpeed = 90;
+let pText = 0;
+let pChar = 0;
+const typeSpeed = 90;
 const eraseSpeed = 50;
-const delayBetween = 1500;
-const typingElement = document.getElementById("typingText");
+const waitAfter = 1400;
+const el = document.getElementById("premiumTyping");
 
-function typeText() {
-  if (charIndex < texts[textIndex].length) {
-    typingElement.textContent += texts[textIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeText, typingSpeed);
+function typePremium() {
+  if (pChar < premiumTexts[pText].length) {
+    el.textContent += premiumTexts[pText].charAt(pChar);
+    pChar++;
+    setTimeout(typePremium, typeSpeed);
   } else {
-    setTimeout(eraseText, delayBetween);
+    setTimeout(erasePremium, waitAfter);
   }
 }
 
-function eraseText() {
-  if (charIndex > 0) {
-    typingElement.textContent =
-      texts[textIndex].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(eraseText, eraseSpeed);
+function erasePremium() {
+  if (pChar > 0) {
+    el.textContent = premiumTexts[pText].substring(0, pChar - 1);
+    pChar--;
+    setTimeout(erasePremium, eraseSpeed);
   } else {
-    textIndex = (textIndex + 1) % texts.length;
-    setTimeout(typeText, typingSpeed);
+    pText = (pText + 1) % premiumTexts.length;
+    setTimeout(typePremium, typeSpeed);
   }
 }
 
-typeText();
+typePremium();
 </script>
-<!-- PREMIUM WELCOME ALL-IN-ONE END -->
+<!-- ULTRA PREMIUM WELCOME END -->
+<hr>
+<!-- HAPPY NEW YEAR 2026 PREMIUM START -->
+<style>
+.newyear-wrap {
+  width: 100%;
+  margin: 22px 0;
+}
+
+.newyear-banner {
+  background: linear-gradient(
+    135deg,
+    #000428,
+    #004e92
+  );
+  border-radius: 20px;
+  padding: 18px 16px;
+  text-align: center;
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.newyear-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(
+    90deg,
+    #ffd700,
+    #ffffff,
+    #ffd700
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+.newyear-sub {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.4px;
+}
+
+.newyear-icons {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+@keyframes shine {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+</style>
+
+<div class="newyear-wrap">
+  <div class="newyear-banner">
+    <div class="newyear-title">
+      ✨ HAPPY NEW YEAR 2026 🎊
+    </div>
+    <div class="newyear-sub">
+      Wishing you success, happiness & premium moments ahead
+    </div>
+    <div class="newyear-icons">
+      🎆 💎 🎥 🌟 😇
+    </div>
+  </div>
+</div>
+<!-- HAPPY NEW YEAR 2026 PREMIUM END -->
+
 
 <br>
 <!doctype html>
