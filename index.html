@@ -255,27 +255,33 @@ typePremium();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  background:#f1f1f1;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#eaeaea;
+  display:flex;
+  justify-content:center;
+  padding:20px;
 }
 
-/* MAIN BOX */
-.box{
+/* MAIN CARD */
+.card{
+  width:100%;
   max-width:420px;
-  margin:16px auto;
   background:#fff;
-  border-radius:22px;
-  box-shadow:0 14px 45px rgba(0,0,0,.22);
+  border-radius:20px;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
   overflow:hidden;
+  position:relative;
+  z-index:999;
 }
 
 /* HERO */
 .hero{
-  padding:22px 14px;
   text-align:center;
-  background:linear-gradient(to bottom,#ff9933,#ffffff,#138808);
+  padding:22px 14px;
+  background:linear-gradient(#ff9933,#ffffff,#138808);
 }
 .hero h1{
   margin:0;
@@ -284,38 +290,37 @@ body{
 }
 .hero p{margin:6px 0;font-weight:700}
 .hero .hi{
-  font-size:18px;
+  font-size:17px;
   font-weight:700;
 }
 
-/* MOVING TEXT */
+/* MOVING LINE */
 .marquee{
   background:#0a3d91;
   color:#fff;
-  font-weight:800;
-  padding:8px 0;
   overflow:hidden;
   white-space:nowrap;
+  font-weight:800;
 }
 .marquee span{
   display:inline-block;
   padding-left:100%;
-  animation:move 14s linear infinite;
+  animation:mar 12s linear infinite;
 }
-@keyframes move{
+@keyframes mar{
   0%{transform:translateX(0)}
   100%{transform:translateX(-100%)}
 }
 
 /* JOIN */
 .join{
-  padding:18px 14px;
+  padding:16px;
   text-align:center;
 }
 .counter{
-  margin:10px 0;
-  font-weight:800;
   color:#0a3d91;
+  font-weight:800;
+  margin-bottom:10px;
 }
 
 input,textarea{
@@ -330,17 +335,13 @@ input,textarea{
 button{
   width:100%;
   padding:12px;
-  margin-top:10px;
   border:none;
   border-radius:999px;
   font-size:16px;
   font-weight:900;
-  cursor:pointer;
-}
-
-.joinBtn{
   background:linear-gradient(90deg,#ff9933,#ff5722);
   color:#fff;
+  cursor:pointer;
   animation:pulse 1.6s infinite;
 }
 @keyframes pulse{
@@ -350,15 +351,15 @@ button{
 
 /* LIST */
 .list{
-  padding:10px 14px 14px;
-  max-height:180px;
+  padding:0 16px 16px;
+  max-height:160px;
   overflow:hidden;
 }
 .list ul{
   list-style:none;
   padding:0;
   margin:0;
-  animation:scroll 22s linear infinite;
+  animation:scroll 20s linear infinite;
 }
 .list li{
   padding:6px 0;
@@ -374,42 +375,40 @@ button{
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
+  background:rgba(0,0,0,.6);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:999;
+  z-index:9999;
 }
 .popupBox{
   background:#fff;
   padding:18px;
-  border-radius:16px;
-  width:90%;
-  max-width:320px;
+  border-radius:14px;
   text-align:center;
+  width:90%;
+  max-width:300px;
 }
 .popupBox button{
   background:#25D366;
-  color:#fff;
   margin-top:8px;
 }
-
-/* POSTER */
-canvas{display:none}
 
 /* FOOTER */
 .footer{
   text-align:center;
   font-size:12px;
   color:#777;
-  padding:8px 0 12px;
+  padding:10px 0;
 }
+
+canvas{display:none}
 </style>
 </head>
 
 <body>
 
-<div class="box" id="poster">
+<div class="card" id="poster">
 
   <div class="hero">
     <h1>🇮🇳 HAPPY REPUBLIC DAY 2026 🇮🇳</h1>
@@ -421,36 +420,35 @@ canvas{display:none}
   </div>
 
   <div class="marquee">
-    <span>🇮🇳 Join the celebration with premiumvlog.in • Share your name • Jai Hind 🇮🇳</span>
+    <span>🇮🇳 Join the celebration with premiumvlog.in • Jai Hind 🇮🇳</span>
   </div>
 
   <div class="join">
     <div class="counter">
-      🔴 <span id="count">2980</span> People Celebrating Today
+      🔴 <span id="count">3000</span> People Celebrating Today
     </div>
 
     <input id="name" placeholder="Your Name">
     <input id="city" placeholder="City (optional)">
     <textarea id="msg" placeholder="Your message (optional)"></textarea>
 
-    <button type="button" class="joinBtn" onclick="submitForm()">🎉 Join & Share</button>
+    <button type="button" onclick="submitForm()">🎉 Join & Share</button>
   </div>
 
   <div class="list">
     <ul id="list">
       <li>🇮🇳 Rahul • Delhi</li>
-      <li>🇮🇳 Ayesha • Mumbai — Proud Indian</li>
+      <li>🇮🇳 Ayesha • Mumbai</li>
       <li>🇮🇳 Aman • Kanpur</li>
       <li>🇮🇳 Simran • Punjab</li>
       <li>🇮🇳 Rakesh • Haryana</li>
-      <li>🇮🇳 Neha — Jai Hind 🇮🇳</li>
+      <li>🇮🇳 Neha • Jai Hind 🇮🇳</li>
     </ul>
   </div>
 
   <div class="footer">© premiumvlog.in</div>
 </div>
 
-<!-- THANK YOU -->
 <div class="popup" id="popup">
   <div class="popupBox">
     <h3>🇮🇳 Thank You!</h3>
@@ -467,9 +465,7 @@ const countEl=document.getElementById("count");
 const list=document.getElementById("list");
 const popup=document.getElementById("popup");
 
-setInterval(()=>{
-  countEl.textContent=Number(countEl.textContent)+1;
-},6000);
+setInterval(()=>countEl.textContent++,6000);
 
 function submitForm(){
   const n=name.value.trim();
@@ -487,46 +483,33 @@ function submitForm(){
 }
 
 function share(){
-  const text=
-"🇮🇳 Happy Republic Day 2026 🇮🇳\n"+
-"Join the celebration with me on premiumvlog.in\n\n"+
-location.href;
+  const text="🇮🇳 Happy Republic Day 2026 🇮🇳\nJoin with me on premiumvlog.in\n\n"+location.href;
   window.open("https://wa.me/?text="+encodeURIComponent(text));
 }
 
 function downloadPoster(){
-  const canvas=document.getElementById("canvas");
-  const ctx=canvas.getContext("2d");
-  canvas.width=1080;
-  canvas.height=1080;
-
-  const g=ctx.createLinearGradient(0,0,0,1080);
+  const c=document.getElementById("canvas");
+  const x=c.getContext("2d");
+  c.width=1080;c.height=1080;
+  const g=x.createLinearGradient(0,0,0,1080);
   g.addColorStop(0,"#ff9933");
-  g.addColorStop(0.5,"#ffffff");
+  g.addColorStop(.5,"#fff");
   g.addColorStop(1,"#138808");
-  ctx.fillStyle=g;
-  ctx.fillRect(0,0,1080,1080);
-
-  ctx.fillStyle="#000";
-  ctx.textAlign="center";
-  ctx.font="bold 60px Arial";
-  ctx.fillText("HAPPY REPUBLIC DAY 2026",540,200);
-
-  ctx.font="48px Arial";
-  ctx.fillText("🇮🇳 "+name.value,540,450);
-
-  ctx.font="36px Arial";
-  ctx.fillText("premiumvlog.in",540,850);
-
-  const link=document.createElement("a");
-  link.download="RepublicDay.png";
-  link.href=canvas.toDataURL();
-  link.click();
+  x.fillStyle=g;x.fillRect(0,0,1080,1080);
+  x.fillStyle="#000";
+  x.font="bold 60px Arial";x.textAlign="center";
+  x.fillText("HAPPY REPUBLIC DAY 2026",540,220);
+  x.font="48px Arial";x.fillText("🇮🇳 "+name.value,540,500);
+  x.font="36px Arial";x.fillText("premiumvlog.in",540,880);
+  const a=document.createElement("a");
+  a.download="RepublicDay.png";
+  a.href=c.toDataURL();a.click();
 }
 </script>
 
 </body>
 </html>
+
 
 <br>
 <!doctype html>
