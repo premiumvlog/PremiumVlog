@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Republic Day 2026 – PremiumVlog.in</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{
+  margin:0;
+  background:#f2f2f2;
+  display:flex;
+  justify-content:center;
+  padding:20px
+}
+.card{
+  width:100%;
+  max-width:420px;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  position:relative;
+  z-index:10;
+}
+.header{
+  padding:20px;
+  text-align:center;
+  background:linear-gradient(#ff9933,#ffffff,#138808);
+}
+.header h1{margin:5px 0;font-size:22px}
+.header p{margin:5px 0;font-size:14px}
+
+.section{padding:20px;text-align:center}
+.counter{font-weight:bold;color:#e53935;margin-bottom:15px}
+
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:14px
+}
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff9800,#ff5722);
+  color:white;
+  font-size:16px;
+  cursor:pointer
+}
+button:active{transform:scale(.97)}
+
+.list{
+  max-height:160px;
+  overflow:hidden;
+  margin-top:15px;
+  text-align:left;
+  font-size:14px
+}
+.list div{
+  padding:6px 0;
+  border-bottom:1px dashed #ddd
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  padding:10px;
+  color:#666
+}
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999
+}
+.popup-box{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  width:90%;
+  max-width:320px;
+  text-align:center
+}
+.popup-box button{margin-top:10px}
+canvas{display:none}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <div class="header">
+    <h1>🇮🇳 HAPPY REPUBLIC DAY 2026 🇮🇳</h1>
+    <p>Celebrating the Constitution & Democracy of India</p>
+    <p>✨ गणतंत्र दिवस 2026 की हार्दिक शुभकामनाएं ✨</p>
+  </div>
+
+  <div class="section">
+    <div class="counter">
+      🔴 <span id="count">3000</span> People Celebrating Today
+    </div>
+
+    <input id="name" placeholder="Your Name">
+    <input id="city" placeholder="City (optional)">
+    <textarea id="msg" placeholder="Your message (optional)"></textarea>
+
+    <button onclick="join()">🎉 Join & Share</button>
+
+    <div class="list" id="list"></div>
+  </div>
+
+  <div class="footer">© PremiumVlog.in</div>
+</div>
+
+<canvas id="canvas" width="600" height="800"></canvas>
+
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>🎉 Thank You!</h3>
+    <p>Your Republic Day poster is ready</p>
+    <button onclick="download()">⬇ Download Poster</button>
+    <button onclick="share()">📤 Share on WhatsApp</button>
+    <button onclick="closePop()">Close</button>
+  </div>
+</div>
+
+<script>
+let countEl=document.getElementById("count");
+let list=document.getElementById("list");
+let popup=document.getElementById("popup");
+let canvas=document.getElementById("canvas");
+let ctx=canvas.getContext("2d");
+let currentPoster="";
+
+let count=localStorage.getItem("rdCount")||3000;
+count=parseInt(count);
+countEl.innerText=count;
+
+let names=[];
+
+function renderList(){
+  list.innerHTML="";
+  names.slice(-6).reverse().forEach(n=>{
+    let d=document.createElement("div");
+    d.innerText="🇮🇳 "+n;
+    list.appendChild(d);
+  });
+}
+
+function join(){
+  let n=document.getElementById("name").value.trim();
+  if(!n){alert("Please enter your name");return}
+  let c=document.getElementById("city").value.trim();
+  let m=document.getElementById("msg").value.trim();
+
+  let text=n;
+  if(c) text+=" · "+c;
+  if(m) text+=" — "+m;
+
+  names.push(text);
+  renderList();
+
+  count++;
+  countEl.innerText=count;
+  localStorage.setItem("rdCount",count);
+
+  makePoster(n,c,m);
+  popup.style.display="flex";
+}
+
+function makePoster(n,c,m){
+  ctx.fillStyle="#fff";
+  ctx.fillRect(0,0,600,800);
+  ctx.fillStyle="#ff9933";
+  ctx.fillRect(0,0,600,200);
+  ctx.fillStyle="#138808";
+  ctx.fillRect(0,600,600,200);
+
+  ctx.fillStyle="#000";
+  ctx.font="bold 36px Arial";
+  ctx.textAlign="center";
+  ctx.fillText("HAPPY REPUBLIC DAY 2026",300,260);
+
+  ctx.font="24px Arial";
+  ctx.fillText(n,300,340);
+  if(c) ctx.fillText(c,300,380);
+  if(m){
+    ctx.font="20px Arial";
+    ctx.fillText(m,300,430);
+  }
+
+  ctx.font="16px Arial";
+  ctx.fillText("PremiumVlog.in",300,760);
+
+  currentPoster=canvas.toDataURL("image/png");
+}
+
+function download(){
+  let a=document.createElement("a");
+  a.href=currentPoster;
+  a.download="RepublicDay_PremiumVlog.png";
+  a.click();
+}
+
+function share(){
+  let text="🇮🇳 Happy Republic Day 2026 🇮🇳\nJoin me at PremiumVlog.in";
+  window.open("https://wa.me/?text="+encodeURIComponent(text));
+}
+
+function closePop(){
+  popup.style.display="none";
+}
+</script>
+
+</body>
+</html>
+
