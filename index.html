@@ -251,229 +251,223 @@ typePremium();
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Republic Day 2026 – PremiumVlog.in</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Republic Day 2026 – Premiumvlog.in</title>
 
 <style>
-*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto}
 body{
   margin:0;
-  background:#f2f2f2;
+  background:#f3f4f6;
   display:flex;
   justify-content:center;
-  padding:20px
+  padding:20px;
 }
+
+/* MAIN CARD */
 .card{
   width:100%;
   max-width:420px;
-  background:white;
+  background:#fff;
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.15);
-  position:relative;
-  z-index:10;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
+
+/* HEADER */
 .header{
-  padding:20px;
-  text-align:center;
   background:linear-gradient(#ff9933,#ffffff,#138808);
+  padding:20px 16px;
+  text-align:center;
 }
-.header h1{margin:5px 0;font-size:22px}
-.header p{margin:5px 0;font-size:14px}
+.header h1{
+  margin:0;
+  font-size:24px;
+  font-weight:800;
+}
+.header p{margin:6px 0 0;font-size:14px}
 
-.section{padding:20px;text-align:center}
-.counter{font-weight:bold;color:#e53935;margin-bottom:15px}
+/* MARQUEE FLAGS */
+.marquee{
+  overflow:hidden;
+  white-space:nowrap;
+  font-size:18px;
+}
+.marquee span{
+  display:inline-block;
+  padding-left:100%;
+  animation:mar 12s linear infinite;
+}
+@keyframes mar{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
 
-input,textarea{
+/* FORM */
+.form{
+  padding:16px;
+}
+input,select,textarea{
   width:100%;
   padding:10px;
-  margin:6px 0;
+  margin-bottom:10px;
   border-radius:10px;
-  border:1px solid #ccc;
-  font-size:14px
+  border:1px solid #ddd;
+  font-size:14px;
 }
 button{
   width:100%;
-  padding:12px;
-  margin-top:10px;
+  padding:14px;
   border:none;
-  border-radius:30px;
-  background:linear-gradient(45deg,#ff9800,#ff5722);
-  color:white;
+  border-radius:999px;
   font-size:16px;
-  cursor:pointer
+  font-weight:700;
+  background:linear-gradient(90deg,#ff7a18,#ffb347);
+  color:#fff;
+  cursor:pointer;
+  animation:pulse 1.6s infinite;
 }
-button:active{transform:scale(.97)}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,122,24,.6)}
+  70%{box-shadow:0 0 0 18px rgba(255,122,24,0)}
+}
 
+/* COUNTER */
+.counter{
+  text-align:center;
+  font-weight:700;
+  margin:10px 0;
+}
+
+/* LIST */
 .list{
-  max-height:160px;
+  max-height:150px;
   overflow:hidden;
-  margin-top:15px;
-  text-align:left;
-  font-size:14px
+  font-size:14px;
 }
 .list div{
   padding:6px 0;
-  border-bottom:1px dashed #ddd
+  border-bottom:1px dashed #ddd;
 }
 
+/* FOOTER */
 .footer{
   text-align:center;
   font-size:12px;
   padding:10px;
-  color:#666
+  color:#555;
 }
-
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999
-}
-.popup-box{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  width:90%;
-  max-width:320px;
-  text-align:center
-}
-.popup-box button{margin-top:10px}
-canvas{display:none}
 </style>
 </head>
 
 <body>
 
-<div class="card" id="card">
+<div class="card">
+
   <div class="header">
-    <h1>🇮🇳 HAPPY REPUBLIC DAY 2026 🇮🇳</h1>
+    <div class="marquee">
+      <span>🇮🇳 🇮🇳 🇮🇳 HAPPY REPUBLIC DAY 2026 🇮🇳 🇮🇳 🇮🇳</span>
+    </div>
+    <h1>Happy Republic Day 2026 🇮🇳</h1>
     <p>Celebrating the Constitution & Democracy of India</p>
     <p>✨ गणतंत्र दिवस 2026 की हार्दिक शुभकामनाएं ✨</p>
   </div>
 
-  <div class="section">
-    <div class="counter">
-      🔴 <span id="count">3000</span> People Celebrating Today
-    </div>
+  <div class="form">
+    <div class="counter">🔴 <span id="count">2987</span> People Celebrating Today</div>
 
-    <input id="name" placeholder="Your Name">
+    <input id="name" placeholder="Your Name" required>
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
     <input id="city" placeholder="City (optional)">
     <textarea id="msg" placeholder="Your message (optional)"></textarea>
 
-    <button onclick="join()">🎉 Join & Share</button>
+    <button onclick="submitForm()">🎉 Join & Share</button>
 
     <div class="list" id="list"></div>
   </div>
 
-  <div class="footer">© PremiumVlog.in</div>
-</div>
-
-<canvas id="canvas" width="600" height="800"></canvas>
-
-<div class="popup" id="popup">
-  <div class="popup-box">
-    <h3>🎉 Thank You!</h3>
-    <p>Your Republic Day poster is ready</p>
-    <button onclick="download()">⬇ Download Poster</button>
-    <button onclick="share()">📤 Share on WhatsApp</button>
-    <button onclick="closePop()">Close</button>
+  <div class="footer">
+    © Premiumvlog.in 🇮🇳
   </div>
 </div>
 
 <script>
-let countEl=document.getElementById("count");
-let list=document.getElementById("list");
-let popup=document.getElementById("popup");
-let canvas=document.getElementById("canvas");
-let ctx=canvas.getContext("2d");
-let currentPoster="";
+let counter = 2987;
+const list = document.getElementById("list");
 
-let count=localStorage.getItem("rdCount")||3000;
-count=parseInt(count);
-countEl.innerText=count;
+const demoNames = [
+  "Aman • Kanpur","Simran • Punjab","Rahul • Delhi",
+  "Ayesha • Mumbai","Neha • Jaipur","Rakesh • Haryana",
+  "Pooja • Noida","Imran • Lucknow","Sahil • Gurugram"
+];
 
-let names=[];
+demoNames.forEach(n=>{
+  const d=document.createElement("div");
+  d.textContent="🇮🇳 "+n;
+  list.appendChild(d);
+});
 
-function renderList(){
-  list.innerHTML="";
-  names.slice(-6).reverse().forEach(n=>{
-    let d=document.createElement("div");
-    d.innerText="🇮🇳 "+n;
-    list.appendChild(d);
-  });
-}
+setInterval(()=>{
+  counter++;
+  document.getElementById("count").textContent=counter;
+},4000);
 
-function join(){
-  let n=document.getElementById("name").value.trim();
-  if(!n){alert("Please enter your name");return}
-  let c=document.getElementById("city").value.trim();
-  let m=document.getElementById("msg").value.trim();
+function submitForm(){
+  const name=document.getElementById("name").value.trim();
+  if(!name){alert("Please enter your name");return;}
 
-  let text=n;
-  if(c) text+=" · "+c;
-  if(m) text+=" — "+m;
+  const city=document.getElementById("city").value;
+  const msg=document.getElementById("msg").value;
 
-  names.push(text);
-  renderList();
+  const line=document.createElement("div");
+  line.textContent=`🇮🇳 ${name}${city?" • "+city:""}${msg?" — "+msg:""}`;
+  list.prepend(line);
 
-  count++;
-  countEl.innerText=count;
-  localStorage.setItem("rdCount",count);
+  // POSTER
+  const c=document.createElement("canvas");
+  c.width=1080;c.height=1080;
+  const x=c.getContext("2d");
 
-  makePoster(n,c,m);
-  popup.style.display="flex";
-}
+  const g=x.createLinearGradient(0,0,0,1080);
+  g.addColorStop(0,"#ff9933");
+  g.addColorStop(.5,"#ffffff");
+  g.addColorStop(1,"#138808");
+  x.fillStyle=g;x.fillRect(0,0,1080,1080);
 
-function makePoster(n,c,m){
-  ctx.fillStyle="#fff";
-  ctx.fillRect(0,0,600,800);
-  ctx.fillStyle="#ff9933";
-  ctx.fillRect(0,0,600,200);
-  ctx.fillStyle="#138808";
-  ctx.fillRect(0,600,600,200);
+  x.fillStyle="#000";
+  x.textAlign="center";
+  x.font="bold 70px sans-serif";
+  x.fillText("Happy Republic Day 2026 🇮🇳",540,180);
 
-  ctx.fillStyle="#000";
-  ctx.font="bold 36px Arial";
-  ctx.textAlign="center";
-  ctx.fillText("HAPPY REPUBLIC DAY 2026",300,260);
+  x.font="50px sans-serif";
+  x.fillText(`From ${name}`,540,320);
 
-  ctx.font="24px Arial";
-  ctx.fillText(n,300,340);
-  if(c) ctx.fillText(c,300,380);
-  if(m){
-    ctx.font="20px Arial";
-    ctx.fillText(m,300,430);
-  }
+  x.font="42px sans-serif";
+  x.fillText("Premiumvlog.in की तरफ से शुभकामनाएं",540,420);
 
-  ctx.font="16px Arial";
-  ctx.fillText("PremiumVlog.in",300,760);
+  x.font="32px sans-serif";
+  x.fillText("🇮🇳 Premiumvlog.in 🇮🇳",540,950);
 
-  currentPoster=canvas.toDataURL("image/png");
-}
-
-function download(){
-  let a=document.createElement("a");
-  a.href=currentPoster;
-  a.download="RepublicDay_PremiumVlog.png";
+  const a=document.createElement("a");
+  a.download="Republic-Day-Poster.png";
+  a.href=c.toDataURL("image/png");
   a.click();
-}
 
-function share(){
-  let text="🇮🇳 Happy Republic Day 2026 🇮🇳\nJoin me at PremiumVlog.in";
-  window.open("https://wa.me/?text="+encodeURIComponent(text));
-}
+  const text=`🇮🇳 Happy Republic Day 2026 🇮🇳\nFrom ${name}\nPremiumvlog.in`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,"_blank");
 
-function closePop(){
-  popup.style.display="none";
+  alert("Thank you! Poster downloaded 🎉");
 }
 </script>
 
 </body>
 </html>
+
+  
 
 <br>
 <!doctype html>
