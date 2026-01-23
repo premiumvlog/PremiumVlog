@@ -247,7 +247,211 @@ typePremium();
 <!-- ULTRA PREMIUM WELCOME END -->
 <hr>
 
+<!-- ===== FESTIVAL JOIN + POSTER (ALL-IN-ONE SAFE BLOCK) ===== -->
 
+<style>
+/* SAFE: site layout ko touch nahi karega */
+.festival-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:40px 0;
+}
+
+.festival-box{
+  width:100%;
+  max-width:420px;
+  background:#ffffff;
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 14px 40px rgba(0,0,0,.25);
+  text-align:center;
+}
+
+/* Head */
+.festival-box h2{
+  margin:6px 0 4px;
+  font-size:22px;
+  font-weight:800;
+}
+.festival-box .sub{
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+/* Moving text */
+.festival-marquee{
+  overflow:hidden;
+  white-space:nowrap;
+  font-size:15px;
+  margin-bottom:10px;
+}
+.festival-marquee span{
+  display:inline-block;
+  padding-left:100%;
+  animation:festMove 14s linear infinite;
+}
+@keyframes festMove{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
+
+/* Counter */
+.festival-count{
+  color:#d32f2f;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+/* Inputs */
+.festival-box input,
+.festival-box select{
+  width:100%;
+  padding:10px;
+  margin-bottom:8px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+
+/* Button */
+.festival-box button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:999px;
+  font-size:15px;
+  font-weight:700;
+  color:#fff;
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+  cursor:pointer;
+  animation:pulseFest 1.6s infinite;
+}
+@keyframes pulseFest{
+  0%{box-shadow:0 0 0 0 rgba(255,87,34,.6)}
+  70%{box-shadow:0 0 0 18px rgba(255,87,34,0)}
+}
+
+/* Live names */
+.festival-stream{
+  margin-top:14px;
+  max-height:120px;
+  overflow:hidden;
+  font-size:13px;
+  text-align:left;
+}
+.festival-stream div{
+  padding:4px 0;
+  border-bottom:1px dashed #ddd;
+}
+
+/* Poster preview */
+.festival-poster{
+  display:none;
+  margin-top:14px;
+  background:linear-gradient(180deg,#ff9933,#ffffff,#138808);
+  border-radius:16px;
+  padding:12px;
+}
+.festival-poster h3{
+  margin:6px 0;
+  font-size:18px;
+  font-weight:800;
+}
+.festival-poster p{
+  margin:4px 0;
+  font-size:14px;
+}
+.festival-watermark{
+  margin-top:8px;
+  font-size:12px;
+  font-weight:700;
+}
+</style>
+
+<section class="festival-wrap">
+  <div class="festival-box">
+
+    <h2>🇮🇳 Happy Republic Day 2026</h2>
+    <div class="sub">Celebrate with <b>Premiumvlog.in</b></div>
+
+    <div class="festival-marquee">
+      <span>🇮🇳 Premiumvlog.in की तरफ से गणतंत्र दिवस की हार्दिक शुभकामनाएं 🇮🇳</span>
+    </div>
+
+    <div class="festival-count">
+      🔴 <span id="festCount">3241</span> People Celebrating Today
+    </div>
+
+    <input id="festName" placeholder="Your Name">
+    <select id="festGender">
+      <option value="">Select Gender</option>
+      <option value="👨">Male</option>
+      <option value="👩">Female</option>
+      <option value="🧑">Other</option>
+    </select>
+    <input id="festCity" placeholder="City (optional)">
+    <input id="festMsg" placeholder="Message (optional)">
+
+    <button onclick="joinFestival()">🎉 Join & Create Poster</button>
+
+    <div class="festival-stream" id="festStream"></div>
+
+    <!-- Poster -->
+    <div class="festival-poster" id="festPoster">
+      <h3>🇮🇳 Happy Republic Day 🇮🇳</h3>
+      <p id="posterName"></p>
+      <p id="posterMsg"></p>
+      <div class="festival-watermark">Premiumvlog.in</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+/* ===== LIVE DEMO NAMES ===== */
+const demoNames=[
+  "Rahul • Delhi","Ayesha • Mumbai","Aman • Kanpur ♥️ Mera Bharat, mera Samvidhan",
+  "Simran • Punjab","Rakesh • Haryana","Neha • Jaipur1️⃣ Samvidhan ka samman, desh ki pehchaan 💯",
+  "Imran • Bhopal Happy Republic Day😇","Pooja • Noida","Arjun • Bengaluru"
+];
+const stream=document.getElementById("festStream");
+let di=0;
+setInterval(()=>{
+  const d=document.createElement("div");
+  d.textContent="🇮🇳 "+demoNames[di%demoNames.length];
+  stream.prepend(d);
+  if(stream.children.length>6) stream.removeChild(stream.lastChild);
+  di++;
+},2000);
+
+/* ===== COUNTER ===== */
+let count=3241;
+setInterval(()=>{
+  count++;
+  document.getElementById("festCount").innerText=count;
+},5000);
+
+/* ===== JOIN ACTION ===== */
+function joinFestival(){
+  const n=document.getElementById("festName").value||"Proud Indian";
+  const g=document.getElementById("festGender").value;
+  const c=document.getElementById("festCity").value;
+  const m=document.getElementById("festMsg").value||"Warm wishes on Republic Day 🇮🇳";
+
+  const live=document.createElement("div");
+  live.textContent="🇮🇳 "+n+(c?" • "+c:"");
+  stream.prepend(live);
+
+  document.getElementById("posterName").innerText=`${g} ${n} ${c?"• "+c:""}`;
+  document.getElementById("posterMsg").innerText=m;
+  document.getElementById("festPoster").style.display="block";
+
+  alert("🎉 Thank you! Poster ready below. You can screenshot or share.");
+}
+</script>
+
+<!-- ===== END FESTIVAL BLOCK ===== -->
 
 <br>
 <!doctype html>
